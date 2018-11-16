@@ -1,0 +1,14 @@
+language: node_js
+node_js: node
+cache:
+  directories:
+  - node_modules
+env:
+- CI=true
+deploy:
+  provider: heroku
+  api_key:
+    secure: rVftVA4xbXTdF5JohW669CXvpPXBBxW7UZ2CswoUNVlxRqKoUXQh/1yeL+8Dep8LGbaZyv85m7viLsd3rCe4W038nBhQfGfVBNw+d/hi5RvGDFnnnm7ox6NSEfZ3dFVs8aEvd60LINQph1xXB/IbW3eV68KLbdx4FauCprvRDiT+fn3XUfoWspkF8LXj8SpTDM7JlwjJW2140ftWWZsm9FKzSr1whExcAl7Rq/MvgDv/NZ8B06h5fkZo3vjpiv7mU1Dz72UJLsvNOcwW2xuPTrXZAkzx/C5ZMPqyy3GCYoBkHLeiYAJNtJbIGILwXaGRuK4eELX9Fiv12BYs5UGklm5u79iCOVgz9OdFUg3wkf2mDo5jGs4NBf+43Z6Fmd/JuB/kXau3J6r9zG1e0WKBKU9ZUoqfFjkjG0/0kImCTzB+UW1DKva3g6mnwCLv+2R6f1ab7JDNRobijTn8pMqS5qVamlAuwrpWcWWJeeBNXqmUxqvaTUwyh2tCVYAh1euJphMYPOGCgnt0eLl08Zs5lRBjqfky0C0A+CW2i0rE61ANZKKR9+n2knWLw7YS8hINo9D9pAAmv5megLrM5z5QZQvBn00aQ/5CL3MpCvdCHt3Dulsg7yXhE6cLumJSgmBEVJPpMgBZpOCaYpHITMj3H8RplLK8PrMlNLF4WsyKUAw=
+  app: fast-meadow-25618
+  on:
+    repo: kdxcii/my-automate-client
