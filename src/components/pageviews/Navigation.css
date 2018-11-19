@@ -1,0 +1,25 @@
+.Navigation {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	padding: 1% 10%;
+	background-color: #aaa;
+	border-bottom: 2px solid black;
+}
+
+.automate-title-link {
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+	float: right;
+	padding: 0 10px;
+	/* margin-top: 15px; */
+}

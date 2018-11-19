@@ -1,0 +1,21 @@
+#signup-form button {
+	padding: 10px 20px;
+}
+
+#signup-form input {
+	text-align: center;
+	padding: 3px 0px;
+	font-size: 20px;
+	margin: 10px auto;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	display: block;
+}
+
+#signup-form {
+	margin-top: 100px;
+}
+
+fieldset {
+	border: 0;
+}
