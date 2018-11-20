@@ -13,12 +13,14 @@ const initialState = {
 							kind: 'oil',
 							date: '10/22/2018',
 							currentMiles: 1111,
-							note: 'lorem ipsum'
+							note: 'lorem ipsum',
+							maintenanceID: 0
 						},{
 							kind: 'breaks',
 							date: '1/23/2018',
 							currentMiles: 1111,
-							note: 'lorem ipsum'
+							note: 'lorem ipsum',
+							maintenanceID: 1
 						}]},
 				 	{ 
 						brand: 'Audi',
@@ -31,12 +33,14 @@ const initialState = {
 							kind: 'oil',
 							date: '10/22/2018',
 							currentMiles: 1111,
-							note: 'lorem ipsum'
+							note: 'lorem ipsum',
+							maintenanceID: 0
 						},{
 							kind: 'breaks',
 							date: '1/23/2018',
 							currentMiles: 1111,
-							note: 'lorem ipsum'
+							note: 'lorem ipsum',
+							maintenanceID: 1
 						}]}
 					]
 				};
