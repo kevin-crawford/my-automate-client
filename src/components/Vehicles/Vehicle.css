@@ -1,0 +1,17 @@
+.vehicle {
+	background: lightgrey;
+	height: 145px;
+}
+
+.vehicle h2 {
+	padding-top: 20px;
+}
+
+.vehicle-information li {
+	list-style: none;
+}
+
+.maintenance-list li {
+	list-style: none;
+	background: aliceblue;
+}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import Maintenance  from '../Maintenance/Maintenance';
 
+import './Vehicle.css'
 
 export class Vehicle extends React.Component {
 	render() {
@@ -10,14 +11,15 @@ export class Vehicle extends React.Component {
 		<div className="maintenance-list" index={index} key={index}>
 			<Maintenance {...maintenance} />
 			<div className="view-maintenance">
-				<Link to={`/vehicle/${this.props.currentVehicle}/${this.props.maintenanceID}`}>
+				<Link to={`/vehicle/${this.props.currentVehicle}/maintenance/${this.props.maintenanceID}`}>
 					<h4> View </h4>
 				</Link>
 			</div>
 		</div>
 		)
 		return(
-			<Fragment>
+			<div className="vehicle wrapper">
+			<h3>Vehicle Information</h3>
 				<ul className="vehicle-information">
 					<li className="vehicle-brand">
 						Brand: {this.props.brand}
@@ -35,8 +37,8 @@ export class Vehicle extends React.Component {
 						Added On: {this.props.addedOn}
 					</li>
 				</ul>
-					{maintenanceList}
-			</Fragment>
+					{this.props.currentVehicle !== undefined && maintenanceList}
+		</div>
 		)
 	}
 }
@@ -44,12 +46,12 @@ export class Vehicle extends React.Component {
 
 const mapStateToProps = (state, props) => {
 	const currentVehicle = props.match.params.vehicleID;
-	const vehicle = state.automate.vehicles[currentVehicle];
-	const maintenanceID = vehicle.maintenance.maintenanceID;
+	console.log(currentVehicle)
+	const vehicle = state.automate.vehicles.find( vehicle => vehicle.vehicleID === currentVehicle );
+	console.log(vehicle);
 	console.log(props.match.params)
 	return Object.assign({}, vehicle, {
-		currentVehicle,
-		maintenanceID
+		currentVehicle
 	})
 }
 

@@ -8,8 +8,9 @@ import Vehicle from '../Vehicles/Vehicle'
 
 export class Garage extends React.Component {
 	render(){
-		const vehicles = this.props.vehicles.map( (vehicle, index) => (
+		const vehiclesList = this.props.vehicles.map( (vehicle, index) => (
 			<div className="vehicle-list" index={index} key={index}>
+			<h1>Vehicle {index + 1} </h1>
 				<Vehicle  {...vehicle} />
 				<div className="vehicle-view">
 					<Link to={`/vehicle/${vehicle.vehicleID}`}> 
@@ -26,7 +27,7 @@ export class Garage extends React.Component {
 				<AddNewVehicle />
 			</div>
 				<div className="vehicles-list wrapper">
-					{vehicles}
+					{vehiclesList}
 				</div>
 			</div>
 		)

@@ -25,7 +25,7 @@ export default function App() {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/garage" component={Garage} />
             <Route path="/vehicle/:vehicleID" component={Vehicle} />
-            <Route path="/vehicle/:vehicleID/:maintenanceID" component={Maintenance}/>
+            <Route path="/vehicle/:vehicleID/maintenance/:maintenanceID" component={Maintenance}/>
             {/* <Route exact path="/AddNewVehicleForm" component={AddNewVehicleForm} /> */}
           </main>
         </div>

@@ -8,19 +8,19 @@ const initialState = {
 						year: '2001',
 						miles: 28193,
 						addedOn: '10/25/2018',
-						vehicleID: 0,
+						vehicleID: '1234',
 						maintenance: [{
 							kind: 'oil',
 							date: '10/22/2018',
 							currentMiles: 1111,
 							note: 'lorem ipsum',
-							maintenanceID: 0
+							maintenanceID: '1111'
 						},{
 							kind: 'breaks',
 							date: '1/23/2018',
 							currentMiles: 1111,
 							note: 'lorem ipsum',
-							maintenanceID: 1
+							maintenanceID: '2222'
 						}]},
 				 	{ 
 						brand: 'Audi',
@@ -28,19 +28,19 @@ const initialState = {
 						year: '2017',
 						miles: 2193,
 						addedOn: '10/25/2018',
-						vehicleID: 1,
+						vehicleID: '4567',
 						maintenance: [{
 							kind: 'oil',
 							date: '10/22/2018',
 							currentMiles: 1111,
 							note: 'lorem ipsum',
-							maintenanceID: 0
+							maintenanceID: '3333'
 						},{
 							kind: 'breaks',
 							date: '1/23/2018',
 							currentMiles: 1111,
 							note: 'lorem ipsum',
-							maintenanceID: 1
+							maintenanceID: '4444'
 						}]}
 					]
 				};

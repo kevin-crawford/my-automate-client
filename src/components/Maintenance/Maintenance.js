@@ -7,6 +7,7 @@ import './Maintenance.css'
 
 class Maintenance extends React.Component {
 	render() {
+
 		return (
 			<Fragment>
 				<ul>
@@ -23,7 +24,7 @@ class Maintenance extends React.Component {
 						Note: {this.props.note}
 					</li>
 					<li>
-						maintenanceID: {this.props.maintenanceID}
+						Maintenance ID: {this.props.maintenanceID}
 					</li>
 				</ul>
 			</Fragment>

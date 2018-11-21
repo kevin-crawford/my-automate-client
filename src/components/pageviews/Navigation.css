@@ -13,11 +13,11 @@
 	text-align: center;
 }
 
-a {
+.Navigation a {
 	text-decoration: none;
 }
 
-li {
+.Navigation li {
 	list-style: none;
 	float: right;
 	padding: 0 10px;
