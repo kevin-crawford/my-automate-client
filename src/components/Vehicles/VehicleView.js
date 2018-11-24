@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 
 import './VehicleView.css';
@@ -15,11 +15,18 @@ class VehicleView extends React.Component{
 				<ul className="maintenance-list">
 					<li>
 						<h5>Item {index + 1}</h5>
-						{maintenance.maintenanceID}
-						{maintenance.kind}
-						{maintenance.date}
+						<p>{maintenance.maintenanceID}</p>
+						<p>{maintenance.kind}</p>
+						<p>{maintenance.date}</p>
 					</li>
 				</ul>
+
+				<div className="view-maintenance btn">
+					<Link to={`/vehicle/${this.props.currentVehicle}/maintenance/${maintenance.maintenanceID}`}>
+						<h3> View </h3>
+					</Link>
+				</div>
+
 			</div>
 
 		)
@@ -32,11 +39,6 @@ class VehicleView extends React.Component{
 
 				<h2> Maintenance Items </h2>
 					{maintenanceList}
-
-				<h2> Add New Vehicle </h2>
-				<div className="addVehicle btn">
-					{/* < AddVehicle /> */}
-				</div>
 
 			</div>
 		)

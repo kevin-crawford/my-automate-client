@@ -7,20 +7,8 @@ import './Vehicle.css'
 
 export class Vehicle extends React.Component {
 	render() {
-		const maintenanceList = this.props.maintenance.map((maintenance, index) => 
-		<div className="maintenance-list" index={index} key={index}>
-			<Maintenance {...maintenance} />
-			<div className="view-maintenance">
-				<Link to={`/vehicle/${this.props.currentVehicle}/maintenance/${maintenance.maintenanceID}`}>
-					<h4> View </h4>
-				</Link>
-			</div>
-		</div>
-		)
-		console.log(this.props.maintenance)
 		return(
 			<div className="vehicle wrapper">
-			<h3>Vehicle Information</h3>
 				<ul className="vehicle-information">
 					<li className="vehicle-brand">
 						Brand: {this.props.brand}
@@ -38,7 +26,6 @@ export class Vehicle extends React.Component {
 						Added On: {this.props.addedOn}
 					</li>
 				</ul>
-					{this.props.currentVehicle !== undefined && maintenanceList}
 		</div>
 		)
 	}
@@ -46,13 +33,8 @@ export class Vehicle extends React.Component {
 
 
 const mapStateToProps = (state, props) => {
-	const currentVehicle = props.match.params.vehicleID;
-	console.log(currentVehicle)
-	const vehicle = state.automate.vehicles.find( vehicle => vehicle.vehicleID === currentVehicle );
-	console.log(props.match.params)
-	return Object.assign({}, vehicle, {
-		currentVehicle
-	})
+	console.log(state, props)
+	return state;
 }
 
-export default withRouter(connect(mapStateToProps)(Vehicle));
+export default connect(mapStateToProps)(Vehicle);

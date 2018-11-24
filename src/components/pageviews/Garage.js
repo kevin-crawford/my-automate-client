@@ -10,13 +10,31 @@ class Garage extends React.Component {
 	render(){
 		const vehiclesList = this.props.vehicles.map( (vehicle, index) => (
 			<div className="vehicle-list" index={index} key={index}>
-			<h1>Vehicle {index + 1} </h1>
-				<Vehicle  {...vehicle} />
+
+				<h1>Vehicle {index + 1}</h1>
+					<ul>
+						<li>
+							Brand: {vehicle.brand}
+						</li>
+						<li>
+							Model: {vehicle.model}
+						</li>
+						<li>
+							Year: {vehicle.year}
+						</li>
+						<li>
+							Miles: {vehicle.miles}
+						</li>
+						<li>
+							Added On: {vehicle.addedOn}
+						</li>
+					</ul>
 				<div className="vehicle-view">
 					<Link to={`/vehicle/${vehicle.vehicleID}`}> 
 						<h4> View </h4>
 					</Link>
 				</div>
+
 			</div>
 		));
 	
@@ -29,6 +47,7 @@ class Garage extends React.Component {
 				<div className="vehicles-list wrapper">
 					{vehiclesList}
 				</div>
+
 			</div>
 		)
 	}
