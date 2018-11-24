@@ -13,6 +13,7 @@ import Vehicle  from './components/Vehicles/Vehicle';
 import Maintenance from './components/Maintenance/Maintenance';
 
 import './App.css';
+import VehicleView from './components/Vehicles/VehicleView';
 
 export default function App() {
     return (

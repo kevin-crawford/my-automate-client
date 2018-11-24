@@ -11,12 +11,13 @@ export class Vehicle extends React.Component {
 		<div className="maintenance-list" index={index} key={index}>
 			<Maintenance {...maintenance} />
 			<div className="view-maintenance">
-				<Link to={`/vehicle/${this.props.currentVehicle}/maintenance/${this.props.maintenanceID}`}>
+				<Link to={`/vehicle/${this.props.currentVehicle}/maintenance/${maintenance.maintenanceID}`}>
 					<h4> View </h4>
 				</Link>
 			</div>
 		</div>
 		)
+		console.log(this.props.maintenance)
 		return(
 			<div className="vehicle wrapper">
 			<h3>Vehicle Information</h3>
@@ -48,7 +49,6 @@ const mapStateToProps = (state, props) => {
 	const currentVehicle = props.match.params.vehicleID;
 	console.log(currentVehicle)
 	const vehicle = state.automate.vehicles.find( vehicle => vehicle.vehicleID === currentVehicle );
-	console.log(vehicle);
 	console.log(props.match.params)
 	return Object.assign({}, vehicle, {
 		currentVehicle

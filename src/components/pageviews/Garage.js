@@ -6,7 +6,7 @@ import './Garage.css';
 import AddNewVehicle from '../Vehicles/AddNewVehicle'
 import Vehicle from '../Vehicles/Vehicle'
 
-export class Garage extends React.Component {
+class Garage extends React.Component {
 	render(){
 		const vehiclesList = this.props.vehicles.map( (vehicle, index) => (
 			<div className="vehicle-list" index={index} key={index}>

@@ -32,4 +32,18 @@ class Maintenance extends React.Component {
 	}
 }
 
-export default connect()(Maintenance);
+const mapStateToProps = ( state, props ) => {
+
+	const currentVehicle = props.match.params.vehicleID;
+	const currentMaintenance = props.match.params.maintenanceID;
+
+	const vehicle = state.automate.vehicles.find( vehicle => vehicle.vehicleID === currentVehicle );
+	const item = vehicle.maintenance.find( item => item.maintenanceID === currentMaintenance)
+
+	return Object.assign({}, item, {
+		currentMaintenance
+	})
+
+}
+
+export default withRouter(connect(mapStateToProps)(Maintenance));
