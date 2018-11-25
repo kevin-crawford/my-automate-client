@@ -1,11 +1,10 @@
 export const ADD_VEHICLE = 'ADD_LIST';
-export const addVehicle = ( brand, model, year, miles, dateAdded ) => ({
+export const addVehicle = ( brand, model, year, miles) => ({
 	type: ADD_VEHICLE,
 	brand,
 	model,
 	year,
 	miles,
-	dateAdded
 });
 
 export const ADD_MAINTENANCE = 'ADD_MAINTENANCE';

@@ -27,7 +27,7 @@ export default function App() {
             <Route exact path="/garage" component={Garage} />
             <Route exact path="/vehicle/:vehicleID" component={VehicleView} />
             <Route exact path="/vehicle/:vehicleID/maintenance/:maintenanceID" component={Maintenance}/>
-            {/* <Route exact path="/AddNewVehicleForm" component={AddNewVehicleForm} /> */}
+            <Route exact path="/AddNewVehicleForm" component={AddNewVehicleForm} />
           </main>
         </div>
       </Router>

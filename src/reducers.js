@@ -54,7 +54,6 @@ const automateReducer = (state=initialState, action) => {
 				model: action.model,
 				year: action.year,
 				miles: action.miles,
-				vehicleID: state.vehicles.length,
 				maintenance: []
 			}]
 		})

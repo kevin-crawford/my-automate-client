@@ -5,36 +5,30 @@ import Maintenance  from '../Maintenance/Maintenance';
 
 import './Vehicle.css'
 
-export class Vehicle extends React.Component {
-	render() {
+export function Vehicle(props) {
+	console.log(props.vehicle)
 		return(
 			<div className="vehicle wrapper">
 				<ul className="vehicle-information">
 					<li className="vehicle-brand">
-						Brand: {this.props.brand}
+						Brand: {props.vehicle.brand}
 					</li>
 					<li className="vehicle-model">
-						Model: {this.props.model}
+						Model: {props.vehicle.model}
 					</li>
 					<li className="vehicle-year">
-						Year: {this.props.year}
+						Year: {props.vehicle.year}
 					</li>
 					<li className="vehicle-miles">
-						Miles: {this.props.miles}
+						Miles: {props.vehicle.miles}
 					</li>
 					<li className="vehicle-addedOn">
-						Added On: {this.props.addedOn}
+						Added On: {props.vehicle.addedOn}
 					</li>
 				</ul>
 		</div>
 		)
-	}
 }
 
 
-const mapStateToProps = (state, props) => {
-	console.log(state, props)
-	return state;
-}
-
-export default connect(mapStateToProps)(Vehicle);
+export default Vehicle;
