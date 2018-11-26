@@ -1,5 +1,5 @@
 import automateReducer from './reducers';
-import { createStore, combineReducers, ApplyMiddleware, compose, applyMiddleware } from "redux";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { reducer as formReducer } from 'redux-form';
 import thunk from 'redux-thunk';
 

@@ -7,8 +7,8 @@ import './AddNewVehicleForm.css';
 
 export class AddNewVehicleForm extends React.Component {
 	onSubmit(values) {
-		console.log(values);
-		this.props.dispatch(addVehicle(values));
+		console.log(values.brand,values.model,values.year,values.miles);
+		this.props.dispatch(addVehicle(values.brand,values.model,values.year,values.miles));
 		this.props.history.push('/garage');
 	}
 
