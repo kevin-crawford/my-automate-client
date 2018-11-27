@@ -8,10 +8,11 @@ import './VehicleView.css';
 import Vehicle from '../Vehicles/Vehicle';
 
 class VehicleView extends React.Component{
+	
 	render(){
-
-		// if(this.props.maintenance !== undefined ){
-			const maintenanceList = this.props.maintenance.map((maintenance, index) =>
+		let maintenanceList;
+		if(this.props.maintenance.length){
+			 maintenanceList = this.props.maintenance.map((maintenance, index) => (
 				<div index={index} key={index}>
 					<ul className="maintenance-list">
 						<li>
@@ -27,14 +28,16 @@ class VehicleView extends React.Component{
 						</Link>
 					</div>
 				</div>	
+				)
 			)
-		// } else {
+		} else {
 			
-		// 	const maintenanceList = <div>
-		// 	<span> No Maintenance Items Available </span>
-		// </div>
-			
-		// }
+			 maintenanceList = (
+			<div>
+				<span> No Maintenance Items Available </span>
+			</div>
+			)
+		}
 			
 		return (
 			<div className="vehicle-view wrapper">
@@ -50,7 +53,10 @@ class VehicleView extends React.Component{
 
 const mapStateToProps = ( state, props ) => {
 	const currentVehicle = props.match.params.vehicleID;
-	const vehicle = state.automate.vehicles.find( vehicle => vehicle.vehicleID === currentVehicle)
+	
+	const vehicle = state.vehicle.vehicles.find( vehicle => vehicle.vehicleID === currentVehicle)
+	console.log(state.vehicle.vehicles)
+	console.log(vehicle)
 	return Object.assign({}, vehicle, {
 		currentVehicle
 	});

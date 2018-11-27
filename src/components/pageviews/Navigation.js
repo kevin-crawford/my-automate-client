@@ -6,9 +6,9 @@ export default function Navigation() {
 	return(
 		<Fragment>
 			<nav role="navigation">
-				<h1 className="Navigation-title">
+				{/* <h1 className="Navigation-title">
 						<Link to={'/'} className="automate-title-link">AutoMate</Link>
-				</h1>
+				</h1> */}
 				<ul className="Navigation">
 						<li>
 							<Link to="/">Home</Link>

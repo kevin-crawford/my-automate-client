@@ -2,7 +2,7 @@ import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import Input from './Input';
 
-import { addVehicle } from '../../actions'
+import { addVehicle } from '../../actions/vehicle-actions'
 import './AddNewVehicleForm.css';
 
 export class AddNewVehicleForm extends React.Component {

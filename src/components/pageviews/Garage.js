@@ -55,7 +55,7 @@ class Garage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	vehicles: state.automate.vehicles
+	vehicles: state.vehicle.vehicles
 })
 
 export default connect(mapStateToProps)(Garage);
