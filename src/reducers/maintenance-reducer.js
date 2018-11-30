@@ -1,3 +1,6 @@
+import * as actions from '../actions/maintenance-actions';
+
+
 const maintenanceReducer = (state=initialState, action) => {
 
 	var today = new Date();
