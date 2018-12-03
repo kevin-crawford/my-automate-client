@@ -1,21 +1,51 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import LandingPage from './components/pageviews/LandingPage';
 import Navigation from './components/pageviews/Navigation';
 import Login from './components/pageviews/Login';
 import SignUp from './components/pageviews/SignUp';
 import Garage from './components/pageviews/Garage';
-
 import AddNewVehicleForm from './components/Vehicles/AddNewVehicleForm';  
 // SINGLE VEHICLE IMPORT
 import Vehicle  from './components/Vehicles/Vehicle';
 import Maintenance from './components/Maintenance/Maintenance';
-
-import './App.css';
 import VehicleView from './components/Vehicles/VehicleView';
 
-export default function App() {
+import './App.css';
+
+import {refreshAuthToken} from '../actions/auth';
+
+export class App extends React.Component {
+
+  componentDidUpdate(prevProps) {
+    if(!prevProps.loggedIn && this.props.loggedIn) {
+      this.startPeriodicRefresh();
+    } else if (prevProps.loggedIn && !this.props.loggedIn) {
+      this.stopPeriodicRefresh();
+    }
+  }
+
+  componentWillUnmount(){
+    this.stopPeriodicRefresh();
+  }
+
+  startPeriodicRefresh() {
+    this.refreshInterval = setInterval(
+      () => this.props.dispatch(refreshAuthToken()),
+      60 * 60 * 1000 // One Hour
+    );
+  }
+
+  stopPeriodicRefresh() {
+    if(!this.refreshInterval) {
+      return;
+    }
+    clearInterval(this.refreshInterval);
+  }
+
+  render() {
     return (
       <Router>
         <div className="router-wrapper">
@@ -31,7 +61,13 @@ export default function App() {
           </main>
         </div>
       </Router>
-    );
+    )
+  }
 }
 
+const mapStateToProps = state => ({
+  hasAuthToken: state.auth.authToken !== null,
+  loggedIn: state.auth.currentUser !== null
+});
 
+export default withRouter(connect(mapStateToProps)(App));
