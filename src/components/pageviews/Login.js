@@ -7,14 +7,15 @@ import  {Link} from 'react-router-dom';
 
 import './Login.css'
 
-export class LoginForm extends React.Component {
+export class Login extends React.Component {
+
 	onSubmit(values){
 		return this.props
 		.dispatch(login(values.email, values.password))
 		.then(() => this.props.history.push(`/garage`));
 	}
 
-	render(){
+	render() {
 		let error;
 		if(this.props.error) {
 			error = (
@@ -23,17 +24,44 @@ export class LoginForm extends React.Component {
 				</div>
 			)
 		}
-		return(
-			<div className="Login">
-				<form id="login-form" className="login-form">
-				<legend>Login</legend>
-					<label htmlFor="email">Email</label>
-					<input type="text" placeholder="Email" name="email" id="email" />
-					<label htmlFor="password">Password</label>
-					<input type="text" placeholder="password" name="password" id="password" />
-					<button type="submit">Submit</button>
+		return (
+		<section className="Login">
+				<form id="login-form" className="login-form"
+					onSubmit={this.props.handleSubmit(values => this.onSubmit(values)
+				)}>
+				{error}
+					<fieldset>
+					<legend>Login</legend>
+						<label htmlFor="email">Email</label>
+						<Field 
+								component={Input}
+								type="text"
+								name="email"
+								placeholder="Email"
+								id="email"
+								validate={[required, nonEmpty]}
+						/>
+						<label htmlFor="password">Password</label>
+						<Field 
+								component={Input}
+								type="password"
+								name="password"
+								placeholder="Password"
+								id="password"
+								validate={[required, nonEmpty]}
+						/>
+						<button id="login-button" type="submit" disabled={this.props.pristine || this.props.submitting} >
+								Login
+						</button>
+					</fieldset>
 				</form>
-			</div>
+				<Link to="/signup" className="signup-anchor">Sign up</Link>
+		</section>
 		)
 	}
 };
+
+export default reduxForm({
+	form: 'login',
+	onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
+})(Login);

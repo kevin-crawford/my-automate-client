@@ -1,6 +1,6 @@
 import React from 'react';
 import {reduxForm, Field} from 'redux-form';
-import Input from './Input';
+import Input from '../pageviews/Input';
 
 import { addVehicle } from '../../actions/vehicle-actions'
 import './AddNewVehicleForm.css';

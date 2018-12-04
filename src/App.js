@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import LandingPage from './components/pageviews/LandingPage';
 import Navigation from './components/pageviews/Navigation';
 import Login from './components/pageviews/Login';
-import SignUp from './components/pageviews/SignUp';
+import SignUpPage from './components/pageviews/SignUpPage';
 import Garage from './components/pageviews/Garage';
 import AddNewVehicleForm from './components/Vehicles/AddNewVehicleForm';  
 // SINGLE VEHICLE IMPORT
@@ -15,7 +15,7 @@ import VehicleView from './components/Vehicles/VehicleView';
 
 import './App.css';
 
-import {refreshAuthToken} from '../actions/auth';
+import {refreshAuthToken} from './actions/auth';
 
 export class App extends React.Component {
 
@@ -53,7 +53,7 @@ export class App extends React.Component {
           <main role="main">
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/garage" component={Garage} />
             <Route exact path="/vehicle/:vehicleID" component={VehicleView} />
             <Route exact path="/vehicle/:vehicleID/maintenance/:maintenanceID" component={Maintenance}/>

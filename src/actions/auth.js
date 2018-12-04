@@ -1,8 +1,8 @@
 import jwtDecode from 'jwt-decode';
-import {SubmissionEror} from 'redux-form';
+import {SubmissionError} from 'redux-form';
 
 import {API_BASE_URL} from '../config';
-import {normalizeResponseErorrs} from './utils';
+import {normalizeResponseErrors} from './utils';
 import {saveAuthToken, clearAuthToken} from '../local-storage';
 
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
@@ -27,31 +27,45 @@ export const authSuccess = currentUser => ({
 	currentUser
 });
 
+export const AUTH_ERROR = 'AUTH_ERROR';
+export const authError = error => ({
+	type: AUTH_ERROR,
+	error
+});
 
-const storeAuthInfo = (authToken, dispatch) => {
+export const storeAuthInfo = (authToken, dispatch) => dispatch => {
+	const decodedToken = jwtDecode(authToken);
+	dispatch(setAuthToken(authToken));
+	dispatch(authSuccess(decodedToken.user));
+	saveAuthToken(authToken);
+};
+
+export const login = (email, password) => dispatch => {
 	dispatch(authRequest());
 	return (
-		fetch(`${API_BASE_URL}/auth/login`, {
+		fetch(`${API_BASE_URL}/users/login`, {
 			method: 'POST',
 			headers: {
-				'Content-Type': 'Application/json'
+				'Content-Type': 'application/json'
 			},
-			body: JSON.stringfy({
+			body: JSON.stringify({
 				email,
 				password
-			})
+			}),
+			mode: 'no-cors'
 		})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(({authToken}) => storeAuthInfo(authToken, dispatch))
 		.catch(err => {
 			const {code} = err;
+			const message =
 			code === 401
 					? 'Incorrect email or password'
 					: 'Unable to login, please try again';
 			dispatch(authError(err));
 			return Promise.reject(
-				new SubmissionErorr({
+				new SubmissionError({
 					_error: message
 				})
 			);
