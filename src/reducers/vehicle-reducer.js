@@ -1,8 +1,10 @@
 import * as actions from '../actions/vehicle-actions';
 
 const initialState = {
-			vehicles: []
-				};
+			vehicles: [],
+			error: null,
+			vehicleToEdit: null,
+			};
 
 
 const vehicleReducer = (state=initialState, action) => {
@@ -21,20 +23,27 @@ const vehicleReducer = (state=initialState, action) => {
 		} 
 		
 		today = mm + '/' + dd + '/' + yyyy;
-		
-		
-	if (action.type === actions.ADD_VEHICLE) {
-		return Object.assign({}, state, { 
-		vehicles:	[...state.vehicles, {
-				brand: action.brand,
-				model: action.model,
-				year: action.year,
-				miles: action.miles,
-				addedOn: today,
-				vehicleID: JSON.stringify(state.vehicles.length),
-				maintenance: []
+	
+		if(action.type === actions.FETCH_VEHICLES_SUCCESS) {
+			return Object.assign({}, state, {
+				vehicles: [...state.vehicles, {
+					vehicles: action.fetchedVehicles 
 			}]
 		})
+	 } else if (action.type === actions.FETCH_VEHICLES_ERROR) {
+			return Object.assign({}, state, {
+				error: action.error
+			});
+		} else if (action.type === actions.ADD_VEHICLE_SUCCESS) {
+		return Object.assign({}, state, { 
+		vehicles:	[...state.vehicles, {
+				vehicles: action.addedVehicle
+			}]
+		})
+	} else if(action.type === actions.ADD_VEHICLE_ERROR) {
+		return Object.assign({}, state, {
+			error: action.error
+		});
 	}
 	return state;
 }

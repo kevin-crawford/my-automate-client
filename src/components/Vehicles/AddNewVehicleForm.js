@@ -2,13 +2,13 @@ import React from 'react';
 import {reduxForm, Field} from 'redux-form';
 import Input from '../pageviews/Input';
 
-import { addVehicle } from '../../actions/vehicle-actions'
+import { addVehicleSuccess } from '../../actions/vehicle-actions'
 import './AddNewVehicleForm.css';
 
 export class AddNewVehicleForm extends React.Component {
 	onSubmit(values) {
 		console.log(values.brand,values.model,values.year,values.miles);
-		this.props.dispatch(addVehicle(values.brand,values.model,values.year,values.miles));
+		this.props.dispatch(addVehicleSuccess(values.brand,values.model,values.year,values.miles));
 		this.props.history.push('/garage');
 	}
 

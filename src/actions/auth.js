@@ -40,19 +40,19 @@ export const storeAuthInfo = (authToken, dispatch) => dispatch => {
 	saveAuthToken(authToken);
 };
 
-export const login = (email, password) => dispatch => {
+export const login = ( username, password ) => dispatch => {
+	console.log(username,password, 'login credentials');
 	dispatch(authRequest());
 	return (
-		fetch(`${API_BASE_URL}/users/login`, {
+		fetch(`${API_BASE_URL}/auth/login`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
-				email,
+				username,
 				password
 			}),
-			mode: 'no-cors'
 		})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())

@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Spinner from 'react-spinkit';
+import { fetchData } from '../../actions/vehicle-actions';
 import { Link } from 'react-router-dom';
 import './Garage.css';
 

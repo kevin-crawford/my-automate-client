@@ -11,15 +11,16 @@ const matchesPassword = matches('password');
 export class SignUpForm extends React.Component {
 
 	onSubmit(values) {
-		const {email, password } = values;
-		const user = {email, password }
+		console.log(values);
+		const { username, email, password, firstName, lastName } = values;
+		const user = { username, email, password, firstName, lastName }
 		return this.props
 			.dispatch(registerUser(user))
-			.then(() => this.props.dispatch(login(email, password)))
+			.then(() => this.props.dispatch(login(username, password)))
 			.catch( err => {
 				console.log(err)
 			})
-			// .then(this.props.history.push(`/garage`));
+			.then(this.props.history.push(`/garage`));
 	}
 
 	render() {
@@ -32,6 +33,19 @@ export class SignUpForm extends React.Component {
 
 			<fieldset>
 			<legend>Sign Up</legend>
+				<label htmlFor="firstName" >First Name</label>
+				<Field component={Input} type='text' placeholder="First Name" name="firstName" />
+				<label htmlFor="firstName" >Last Name</label>
+				<Field component={Input} type='text' placeholder="Last Name" name="lastName" />
+				<label htmlFor="username"> Username </label>
+				<Field 
+								component={Input}
+								type="text"
+								name="username"
+								placeholder="Username"
+								id="username"
+								validate={[required, nonEmpty, isTrimmed]}
+						/>
 				<label htmlFor="email"> Email </label>
 				<Field 
 								component={Input}

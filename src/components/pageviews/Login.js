@@ -11,7 +11,7 @@ export class Login extends React.Component {
 
 	onSubmit(values){
 		return this.props
-		.dispatch(login(values.email, values.password))
+		.dispatch(login(values.username, values.password))
 		.then(() => this.props.history.push(`/garage`));
 	}
 
@@ -32,13 +32,13 @@ export class Login extends React.Component {
 				{error}
 					<fieldset>
 					<legend>Login</legend>
-						<label htmlFor="email">Email</label>
+						<label htmlFor="username">Username</label>
 						<Field 
 								component={Input}
 								type="text"
-								name="email"
-								placeholder="Email"
-								id="email"
+								name="username"
+								placeholder="Username"
+								id="username"
 								validate={[required, nonEmpty]}
 						/>
 						<label htmlFor="password">Password</label>
