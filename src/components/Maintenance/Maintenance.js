@@ -1,49 +1,69 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
-
+import {fetchSingleVehicle} from '../../actions/vehicle-actions'
+import Vehicle from '../Vehicles/Vehicle'
+import SingleMaintenanceItem from './SingleMaintenanceItem';
 import './Maintenance.css'
 
 class Maintenance extends React.Component {
+
+	componentDidMount() {
+		const vehicleId = this.props.match.params.vehicleId;
+		console.log('vehicleId', vehicleId);
+		this.props.dispatch(fetchSingleVehicle(vehicleId))
+		.then(() => console.log('vehicle', this.props.singleVehicle));
+	};
+
 	render() {
+		console.log(this.props)
+		console.log(this.props.history)
+		
+		let singleVehicle;
+		let maintenanceItems;
+		
+		
+		if(!this.props.singleVehicle){
+			singleVehicle = (
+			<div>Loading..</div>
+			)
+		} else {
+			
+			singleVehicle = (
+				<Vehicle {...this.props.singleVehicle} history={this.props.history} />
+			)
+			
+			maintenanceItems = this.props.singleVehicle.maintenance.map( (item, index) => {
+				return(
+						<SingleMaintenanceItem 
+													kind={item.kind}
+													currentMiles={item.currentMiles}
+													note={item.note}
+													reminder={item.reminder}
+													created={item.created}
+													id={item._id}
+													index={index} key={index}
+						/>
+					)
+				}
+			)
+			
+
+		}
 
 		return (
-			<Fragment>
-				<ul>
-					<li>
-						Kind: {this.props.kind}
-					</li>
-					<li>
-						Date Added: {this.props.date}
-					</li>
-					<li>
-						Current Miles: {this.props.currentMiles}
-					</li>
-					<li>
-						Note: {this.props.note}
-					</li>
-					<li>
-						Maintenance ID: {this.props.maintenanceID}
-					</li>
-				</ul>
-			</Fragment>
+			
+			<div className="vehicle wrapper">
+				{singleVehicle}
+				
+				{maintenanceItems}
+			</div>
 		)
 	}
 }
-
-const mapStateToProps = ( state, props ) => {
-
-	const currentVehicle = props.match.params.vehicleID;
-	const currentMaintenance = props.match.params.maintenanceID;
-
-	const vehicle = state.automate.vehicles.find( vehicle => vehicle.vehicleID === currentVehicle );
-	const item = vehicle.maintenance.find( item => item.maintenanceID === currentMaintenance)
-
-	return Object.assign({}, item, {
-		currentMaintenance
-	})
-
-}
+const mapStateToProps = state => ({
+	singleVehicle: state.vehicle.singleVehicle
+})
 
 export default withRouter(connect(mapStateToProps)(Maintenance));

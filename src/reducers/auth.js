@@ -6,14 +6,14 @@ import {
 	AUTH_ERROR
 } from '../actions/auth';
 
-const inititalState = {
+const initialState = {
 	authToken: null,
 	currentUser: null,
 	loading: false,
 	error: null
 };
 
-export default function reducer(state = inititalState, action) {
+export default function reducer(state = initialState, action) {
 	if(action.type === SET_AUTH_TOKEN) {
 		return Object.assign({}, state, {
 			authToken: action.authToken

@@ -1,7 +1,8 @@
 import * as actions from '../actions/vehicle-actions';
 
 const initialState = {
-			vehicles: [],
+			vehicles: null,
+			singleVehicle: null,
 			error: null,
 			vehicleToEdit: null,
 			};
@@ -26,11 +27,17 @@ const vehicleReducer = (state=initialState, action) => {
 	
 		if(action.type === actions.FETCH_VEHICLES_SUCCESS) {
 			return Object.assign({}, state, {
-				vehicles: [...state.vehicles, {
-					vehicles: action.fetchedVehicles 
-			}]
+				vehicles: action.fetchedVehicles
 		})
-	 } else if (action.type === actions.FETCH_VEHICLES_ERROR) {
+	  } else if (action.type === actions.FETCH_VEHICLES_ERROR) {
+			return Object.assign({}, state, {
+				error: action.error
+			});
+		} else if (action.type === actions.FETCH_SINGLE_VEHICLE_SUCCESS) {
+			return Object.assign({}, state, { 
+				singleVehicle: action.fetchedVehicle
+			});
+		} else if (action.type === actions.FETCH_SINGLE_VEHICLE_ERROR) {
 			return Object.assign({}, state, {
 				error: action.error
 			});
@@ -40,7 +47,7 @@ const vehicleReducer = (state=initialState, action) => {
 				vehicles: action.addedVehicle
 			}]
 		})
-	} else if(action.type === actions.ADD_VEHICLE_ERROR) {
+	} else if (action.type === actions.ADD_VEHICLE_ERROR) {
 		return Object.assign({}, state, {
 			error: action.error
 		});

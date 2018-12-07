@@ -1,11 +1,10 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
-import { Link } from "react-router-dom";
 import {registerUser} from '../../actions/users';
 import {login} from '../../actions/auth';
 import Input from './Input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
-const passwordLength = length({min: 4, max: 72});
+const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
 
 export class SignUpForm extends React.Component {
@@ -16,7 +15,7 @@ export class SignUpForm extends React.Component {
 		const user = { username, email, password, firstName, lastName }
 		return this.props
 			.dispatch(registerUser(user))
-			.then(() => this.props.dispatch(login(username, password)))
+			.then(() => this.props.dispatch(login(values.username, values.password)))
 			.catch( err => {
 				console.log(err)
 			})
@@ -89,6 +88,6 @@ export class SignUpForm extends React.Component {
 
 export default reduxForm({
 	form: 'signup',
-	onSubmitFail: (errors, dispatch) =>
-	dispatch(focus('signup', Object.keys(errors)[0]))
+	onSubmitFail: (errors, dispatch) => {
+	if(errors)dispatch(focus('signup', Object.keys(errors)[0]))}
 })(SignUpForm);

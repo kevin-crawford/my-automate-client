@@ -13,6 +13,19 @@ export const fetchVehiclesError = error => ({
 	error
 });
 
+export const FETCH_SINGLE_VEHICLE_SUCCESS = 'FETCH_SINGLE_VEHICLE_SUCCESS';
+export const fetchSingleVehicleSuccess = fetchedVehicle => (console.log(fetchedVehicle),{
+	type: FETCH_SINGLE_VEHICLE_SUCCESS,
+	fetchedVehicle
+});
+
+export const FETCH_SINGLE_VEHICLE_ERROR = 'FETCH_SINGLE_VEHICLE_ERROR';
+export const fetchSingleVehicleError = error => ({
+	type: FETCH_SINGLE_VEHICLE_ERROR,
+	error
+});
+
+
 export const ADD_VEHICLE_SUCCESS = 'ADD_VEHICLE_SUCCESS';
 export const addVehicleSuccess = addedVehicle => ({
 	type: ADD_VEHICLE_SUCCESS,
@@ -51,11 +64,11 @@ export const deleteVehicleError = error => ({
 });
 
 
-export const fetchVehicles = (dispatch, getState) => {
+export const fetchVehicles = () => (dispatch, getState) => {
 	console.log('fetching vehicles');
 	const authToken =  getState().auth.authToken;
-	const user = getState().user.currentUser;
-
+	const user = getState().auth.currentUser;
+	console.log(user, authToken);
 	return fetch(`${API_BASE_URL}/vehicles/${user}`, {
 		method: 'GET',
 		headers: {
@@ -74,16 +87,40 @@ export const fetchVehicles = (dispatch, getState) => {
 
 };
 
+export const fetchSingleVehicle = vehicleId => (dispatch, getState) => {
+	console.log('fetching vehicles');
+	const authToken =  getState().auth.authToken;
+
+	return fetch(`${API_BASE_URL}/vehicles/vehicle/${vehicleId}`, {
+		method: 'GET',
+		headers: {
+			Authorization: `Bearer ${authToken}`
+		}
+	})
+		.then(res => normalizeResponseErrors(res))
+		.then(res => res.json())
+		.then(vehicle => {
+			console.log('vehicle', vehicle)
+			dispatch(fetchSingleVehicleSuccess(vehicle))
+		})
+		.catch( err => {
+			dispatch(fetchSingleVehicleError(err));
+		});
+
+};
+
 export const addVehicle = vehicle => (dispatch, getState) => {
 	console.log('adding vehicle', vehicle);
 	const authToken =  getState().auth.authToken;
+	const user = getState().auth.currentUser;
+	console.log('user', user)
 
 	const addedVehicle = {
 		brand: vehicle.brand,
 		model: vehicle.model,
 		year: vehicle.year,
 		miles: vehicle.miles,
-		user: vehicle.user
+		user: user
 	}
 
 	console.log(JSON.stringify(addedVehicle));

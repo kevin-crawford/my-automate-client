@@ -1,63 +1,81 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+import requiresLogin from './requires-login';
 import Spinner from 'react-spinkit';
-import { fetchData } from '../../actions/vehicle-actions';
+
+import { fetchVehicles } from '../../actions/vehicle-actions';
 import { Link } from 'react-router-dom';
 import './Garage.css';
-
+import Vehicle from '../Vehicles/Vehicle';
 import AddNewVehicle from '../Vehicles/AddNewVehicle'
-import Vehicle from '../Vehicles/Vehicle'
+// import Vehicle from '../Vehicles/Vehicle'
 
 class Garage extends React.Component {
-	render(){
-		const vehiclesList = this.props.vehicles.map( (vehicle, index) => { 
-		return (
-			<div className="vehicle-list" index={index} key={index}>
-				<h1>Vehicle {index + 1}</h1>
-					<ul>
-						<li>
-							Brand: {vehicle.brand}
-						</li>
-						<li>
-							Model: {vehicle.model}
-						</li>
-						<li>
-							Year: {vehicle.year}
-						</li>
-						<li>
-							Miles: {vehicle.miles}
-						</li>
-						<li>
-							Added On: {vehicle.addedOn}
-						</li>
-					</ul>
-				<div className="vehicle-view">
-					<Link to={`/vehicle/${vehicle.vehicleID}`}> 
-						<h4> View </h4>
-					</Link>
+	
+	componentDidMount() {
+		const user = this.props.user;
+		console.log('username', user);
+		this.props.dispatch(fetchVehicles(user))
+		.then(() => console.log('vehicles', this.props.vehicles))
+	}
+
+	render() {
+
+		let error;
+
+		if(this.props.error) {
+			error = (
+				<div className="vehicle-error" aria-live="polite">
+					{this.props.error}
 				</div>
-			</div>
-				)	
-			}
+			);
+		};
+
+		if(!this.props.vehicles){
+			return(
+					<div className="vehicleList section" role="region">
+						<div>
+							<ul><Spinner spinnername="circle" fadeIn="none"/></ul>
+						</div>
+					</div>
+			)
+		} else if(!this.props.vehicles.length) {
+				return(
+					<div className="no-vehicles">
+						<p> No Vehicles Found </p>
+					</div>
+				)
+		} else {
+	
+			const vehicles = this.props.vehicles;
+			const vehiclesList = vehicles.map( (vehicle, index) => { 
+			return (
+					<Vehicle {...vehicle} history={this.props.history} index={index} key={index}/>
+					)	
+				}
+			
 		);
 	
 		return(
 			<div className="garage wrapper">
-				<h1> Vehicles </h1>
-			<div className="NewVehicleBtn">
-				<AddNewVehicle />
+				<h1>Vehicles</h1>
+					<div className="NewVehicleBtn">
+						<AddNewVehicle />
+					</div>
+					<div className="vehicles-list wrapper">
+						{vehiclesList}
+					</div>
 			</div>
-			<div className="vehicles-list wrapper">
-					{vehiclesList}
-			</div>
-
-			</div>
-		)
+			)
+		}
 	}
 }
 
 const mapStateToProps = state => ({
-	vehicles: state.vehicle.vehicles
+	vehicles: state.vehicle.vehicles,
+	error: state.vehicle.error,
+	user: state.auth.currentUser
 })
 
-export default connect(mapStateToProps)(Garage);
+export default requiresLogin()(connect(mapStateToProps)(Garage));

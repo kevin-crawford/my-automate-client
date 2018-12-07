@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
+import {Route, withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import LandingPage from './components/pageviews/LandingPage';
@@ -9,9 +9,8 @@ import SignUpPage from './components/pageviews/SignUpPage';
 import Garage from './components/pageviews/Garage';
 import AddNewVehicleForm from './components/Vehicles/AddNewVehicleForm';  
 // SINGLE VEHICLE IMPORT
-import Vehicle  from './components/Vehicles/Vehicle';
 import Maintenance from './components/Maintenance/Maintenance';
-import VehicleView from './components/Vehicles/VehicleView';
+import Vehicle from './components/Vehicles/Vehicle';
 
 import './App.css';
 
@@ -39,6 +38,7 @@ export class App extends React.Component {
   }
 
   stopPeriodicRefresh() {
+    
     if(!this.refreshInterval) {
       return;
     }
@@ -47,7 +47,6 @@ export class App extends React.Component {
 
   render() {
     return (
-      <Router>
         <div className="router-wrapper">
           <Navigation />
           <main role="main">
@@ -55,12 +54,10 @@ export class App extends React.Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/garage" component={Garage} />
-            <Route exact path="/vehicle/:vehicleID" component={VehicleView} />
-            <Route exact path="/vehicle/:vehicleID/maintenance/:maintenanceID" component={Maintenance}/>
+            <Route exact path="/vehicle/:vehicleId" component={Maintenance}/>
             <Route exact path="/AddNewVehicleForm" component={AddNewVehicleForm} />
           </main>
         </div>
-      </Router>
     )
   }
 }

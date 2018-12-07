@@ -33,10 +33,10 @@ export const authError = error => ({
 	error
 });
 
-export const storeAuthInfo = (authToken, dispatch) => dispatch => {
+export const storeAuthInfo = (authToken, userId, dispatch) => {
 	const decodedToken = jwtDecode(authToken);
 	dispatch(setAuthToken(authToken));
-	dispatch(authSuccess(decodedToken.user));
+	dispatch(authSuccess(userId));
 	saveAuthToken(authToken);
 };
 
@@ -56,7 +56,7 @@ export const login = ( username, password ) => dispatch => {
 		})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		.then(({authToken}) => storeAuthInfo(authToken, dispatch))
+		.then(({authToken, userId}) => storeAuthInfo(authToken, userId, dispatch))
 		.catch(err => {
 			const {code} = err;
 			const message =
@@ -75,6 +75,7 @@ export const login = ( username, password ) => dispatch => {
 
 export const refreshAuthToken = () => (dispatch, getState) => {
 	dispatch(authRequest());
+	console.log('refreshing token')
 	const authToken = getState().auth.authToken;
 	return fetch(`${API_BASE_URL}/auth/refresh`, {
 			method: 'POST',
@@ -85,7 +86,7 @@ export const refreshAuthToken = () => (dispatch, getState) => {
 	})
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
-		.then(({authToken}) => storeAuthInfo(authToken, dispatch))
+		.then(({authToken, userId}) => storeAuthInfo(authToken, userId, dispatch))
 		.catch(err => {
 				// We couldn't get a refresh token because our current credentials
 				// are invalid or expired, or something else went wrong, so clear

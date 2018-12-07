@@ -1,6 +1,8 @@
 .vehicle {
 	background: lightgrey;
-	height: 145px;
+	height: 230px;
+	width: auto;
+	margin-bottom: 50px
 }
 
 .vehicle h2 {
