@@ -1,28 +1,21 @@
-import  React, {Fragment} from 'react';
+import  React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchVehicles, deleteVehicle } from '../../actions/vehicle-actions'
-import { withRouter, Link } from 'react-router-dom';
-import Spinner from 'react-spinkit';
+import { Link } from 'react-router-dom';
 
 
 import Maintenance from '../Maintenance/Maintenance';
 import './Vehicle.css'
 
 export class Vehicle extends React.Component {
+	
 
 
 
-	// viewSingleVehicle(){
-		
-	// 	console.log('going to single vehicle view');
-	// }
-
-	// onEditClick(e){
-		
-	// 	console.log('edit vehicle');
-	// 	dispatch(editVehicle());
-	// }
+	onCancelClick(e){
+		console.log('closing form')
+	}
 
   onDeleteClick(e) {
 		const { user } = this.props;
@@ -32,14 +25,16 @@ export class Vehicle extends React.Component {
 		window.confirm("Are you sure you want to delete item?");
 		this.props.dispatch(deleteVehicle(id))
 		.then(() => this.props.dispatch(fetchVehicles(user)))
-}  
+	}  
 
 
 	render(){
 		console.log(this.props)
 		console.log(this.props.history.location.pathname === `/garage`)
 		console.log(this.props.history.location)
-		let viewSingleVehicleButton = (
+
+		let vehicleListButtons = (
+		<>
 			<li>
 				<Link to={`/vehicle/${this.props._id}`}>
 					<button className="viewButton" > 
@@ -47,7 +42,33 @@ export class Vehicle extends React.Component {
 					</button>
 				</Link>
 			</li>
+			<li>
+				<button className="deleteButton" onClick={e => this.onDeleteClick(e)}> 
+					Delete
+				</button>
+			</li>
+		</>
 			)
+
+			let editVehicleButtons = (
+				<>
+					<li>
+						<Link to={`/EditVehicle`} params={{ id:`${this.props._id}`}}>
+							<button className="edit-vehicle button">
+								Edit Vehicle
+							</button>
+						</Link>
+					</li>
+					<li>
+						<Link to={`/AddMaintenance`} params={{ id: `${this.props.id}`}}>
+							<button className="add-maintenance button">
+								Add Maintenance
+							</button>
+						</Link>
+					</li>
+				</>
+			)
+
 		return(
 			
 			<div className="vehicle wrapper">
@@ -68,17 +89,8 @@ export class Vehicle extends React.Component {
 						<li className="vehicle-addedOn">
 							Added On: {this.props.created}
 						</li>
-						{this.props.history.location.pathname === `/garage` ? viewSingleVehicleButton : ''}
-						<li>
-							<button className="viewButton" onClick={e => this.editSingleVehicle(e)}> 
-								Edit
-							</button>
-						</li>
-						<li>
-							<button className="viewButton" onClick={e => this.onDeleteClick(e)}> 
-								Delete
-							</button>
-						</li>
+						{this.props.history.location.pathname === `/garage` ? vehicleListButtons : ''}
+						{this.props.history.location.pathname !== `/garage` ? editVehicleButtons : ''}
 					</>	
 			</div>
 		);

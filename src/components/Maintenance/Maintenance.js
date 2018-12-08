@@ -1,28 +1,25 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
+// vehicle imports
 import {fetchSingleVehicle} from '../../actions/vehicle-actions'
 import Vehicle from '../Vehicles/Vehicle'
+
+// maintenance imports
 import SingleMaintenanceItem from './SingleMaintenanceItem';
-import './Maintenance.css'
 
 class Maintenance extends React.Component {
 
 	componentDidMount() {
 		const vehicleId = this.props.match.params.vehicleId;
-		console.log('vehicleId', vehicleId);
 		this.props.dispatch(fetchSingleVehicle(vehicleId))
 		.then(() => console.log('vehicle', this.props.singleVehicle));
 	};
 
 	render() {
-		console.log(this.props)
-		console.log(this.props.history)
-		
 		let singleVehicle;
 		let maintenanceItems;
-		
 		
 		if(!this.props.singleVehicle){
 			singleVehicle = (
@@ -31,11 +28,13 @@ class Maintenance extends React.Component {
 		} else {
 			
 			singleVehicle = (
-				<Vehicle {...this.props.singleVehicle} history={this.props.history} />
+			
+					<Vehicle {...this.props.singleVehicle} history={this.props.history} />
+				
 			)
 			
-			maintenanceItems = this.props.singleVehicle.maintenance.map( (item, index) => {
-				return(
+			maintenanceItems = this.props.singleVehicle.maintenance.map((item, index) => {
+				return (
 						<SingleMaintenanceItem 
 													kind={item.kind}
 													currentMiles={item.currentMiles}
@@ -45,18 +44,14 @@ class Maintenance extends React.Component {
 													id={item._id}
 													index={index} key={index}
 						/>
-					)
-				}
-			)
-			
-
-		}
+				)
+			});
+		};
 
 		return (
 			
-			<div className="vehicle wrapper">
+			<div className="vehicle wrapper">	
 				{singleVehicle}
-				
 				{maintenanceItems}
 			</div>
 		)

@@ -14,7 +14,7 @@ export const fetchVehiclesError = error => ({
 });
 
 export const FETCH_SINGLE_VEHICLE_SUCCESS = 'FETCH_SINGLE_VEHICLE_SUCCESS';
-export const fetchSingleVehicleSuccess = fetchedVehicle => (console.log(fetchedVehicle),{
+export const fetchSingleVehicleSuccess = fetchedVehicle => ({
 	type: FETCH_SINGLE_VEHICLE_SUCCESS,
 	fetchedVehicle
 });

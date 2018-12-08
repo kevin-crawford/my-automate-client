@@ -2,19 +2,25 @@ import React from 'react';
 import {Route, withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 
+// PAGE VIEWS
 import LandingPage from './components/pageviews/LandingPage';
 import Navigation from './components/pageviews/Navigation';
 import Login from './components/pageviews/Login';
 import SignUpPage from './components/pageviews/SignUpPage';
 import Garage from './components/pageviews/Garage';
-import AddNewVehicleForm from './components/Vehicles/AddNewVehicleForm';  
+
+// FORM IMPORTS --
+import AddNewVehicleForm from './components/Vehicles/AddNewVehicleForm'; 
+import EditVehicleForm  from './components/Vehicles/EditVehicleForm'; 
+
 // SINGLE VEHICLE IMPORT
 import Maintenance from './components/Maintenance/Maintenance';
-import Vehicle from './components/Vehicles/Vehicle';
 
 import './App.css';
 
+// AUTH
 import {refreshAuthToken} from './actions/auth';
+
 
 export class App extends React.Component {
 
@@ -55,7 +61,8 @@ export class App extends React.Component {
             <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/garage" component={Garage} />
             <Route exact path="/vehicle/:vehicleId" component={Maintenance}/>
-            <Route exact path="/AddNewVehicleForm" component={AddNewVehicleForm} />
+            <Route exact path="/AddNewVehicle" component={AddNewVehicleForm} />
+            <Route exact path="/EditVehicle" component={EditVehicleForm} />
           </main>
         </div>
     )

@@ -35,6 +35,7 @@ class Garage extends React.Component {
 		if(!this.props.vehicles){
 			return(
 					<div className="vehicleList section" role="region">
+						{error}
 						<div>
 							<ul><Spinner spinnername="circle" fadeIn="none"/></ul>
 						</div>
@@ -42,9 +43,15 @@ class Garage extends React.Component {
 			)
 		} else if(!this.props.vehicles.length) {
 				return(
+					<>
+					{error}
 					<div className="no-vehicles">
 						<p> No Vehicles Found </p>
 					</div>
+					<div className="NewVehicleBtn">
+					<AddNewVehicle />
+				</div>
+				</>
 				)
 		} else {
 	
