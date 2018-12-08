@@ -1,80 +1,91 @@
 import React from 'react';
-import {reduxForm, Field, focus} from 'redux-form';
-
+import { reduxForm, Field, focus } from 'redux-form';
+import {connect} from 'react-redux';
 import Input from '../pageviews/Input';
 
 import { editVehicle } from '../../actions/vehicle-actions'
-import {required, nonEmpty, length, isTrimmed} from '../../validators';
+import { required, nonEmpty, length, isTrimmed } from '../../validators';
 
 import './AddNewVehicleForm.css';
 
 export class EditVehicleForm extends React.Component {
 
-	onSubmit(values) {
-		return this.props
-		console.log('edit vehicle values',values.brand,values.model,values.year,values.miles);
-		console.log('edit vehicle id', this.props.params)
-		// .dispatch(editVehicle(values))
-		// .then(() => this.props.history.push(`/vehicle/${this.props.id}`));
+	onSubmit(values, vehicleId) {
+		
+		console.log(values);
+		console.log('vehicle id', vehicleId)
+		
+		// console.log('edit vehicle values',values.kind,values.currentMiles,values.note, id);
+		// this.props.dispatch(editVehicle(values, id))
+		// .then(() => this.props.history.push(`/vehicle/${id}`));
 	}
 
 	render() {
 		let error;
-		console.log(this.props);
-		console.log(this.props.match.params);
-		if(this.props.error) {
+		const vehicleId = this.props.location.query.id;
+		
+		if (this.props.error) {
 			error = (
 				<div className="form-error" aria-live="polite">
-					{this.props.error}   
+					{this.props.error}
 				</div>
 			);
 		};
+
 		return (
-		<section className="edit-vehicle form">
-			<form	
+			<section className="edit-vehicle form">
+				<form
 					onSubmit={this.props.handleSubmit(values =>
-							this.onSubmit(values)
-							)}>
-							{error}
+						this.onSubmit(values, vehicleId)
+					)}>
+					{error}
 					<fieldset>
-					<legend>Edit Vehicle</legend>
-						<label htmlFor="kind">Maintenance Type</label>
-							<Field 
-											name="kind" 
-											id="kind" 
-											type="text" 
-											component={Input}
-											label="Kind"
-							/>
-							<label htmlFor="currentMiles">Current Miles</label>
-							<Field 
-											name="currentMiles" 
-											id="currentMiles" 
-											type="number" 
-											component={Input}
-											label="Current Miles"
-							/>
-							<label htmlFor="note">Maintenance Note</label>
-							<Field 
-											name="note" 
-											id="note" 
-											type="text" 
-											component={Input}
-											label="Note"
-							/>
-						<button className="edit-form button" type="submit" disabled={this.props.pristine || this.props.submitting} >
-								Submit
+						<legend>Edit Vehicle</legend>
+						<label htmlFor="kind">Model</label>
+						<Field
+							name="model"
+							id="model"
+							type="text"
+							component={Input}
+							label="Model"
+						/>
+						<label htmlFor="year">Year</label>
+						<Field
+							name="year"
+							id="year"
+							type="number"
+							component={Input}
+							label="Year"
+						/>
+						<label htmlFor="miles">Miles</label>
+						<Field
+							name="miles"
+							id="miles"
+							type="text"
+							component={Input}
+							label="Miles"
+						/>
+						<button className="edit-form button" type="submit"
+							disabled={this.props.pristine || this.props.submitting} >
+							Submit
 						</button>
 					</fieldset>
-			</form>
-		</section>
+				</form>
+			</section>
 		);
 	};
 };
 
-export default reduxForm({
-		form: 'editvehicleform',
-		onSubmitFail: (errors, dispatch) => {
-			if(errors)dispatch(focus('editvehicleform', Object.keys(errors)[0]));
-		}
+const mapStateToProps = state => ({
+	initialValues: state.vehicle.singleVehicle
+})
+
+
+EditVehicleForm = reduxForm({
+	form: 'Edit Vehicle',
+	onSubmitFail: (errors, dispatch) => {
+		if(errors)dispatch(focus('Edit Vehicle', Object.keys(errors)[0]));
+	}
 })(EditVehicleForm);
+
+export default connect(mapStateToProps)(EditVehicleForm);

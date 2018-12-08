@@ -13,11 +13,24 @@ export class AddNewVehicleForm extends React.Component {
 	}
 
 	render() {
+		let error;
+		if(this.props.error) {
+			error = (
+				<div className="form-error" aria-live="polite">
+					{this.props.error}   
+				</div>
+			);
+		};
 		return (
+		<section className="add-vehicle form">
 			<form	
 					onSubmit={this.props.handleSubmit(values =>
 							this.onSubmit(values)
 							)}>
+							{error}
+				<fieldset>
+					<legend>Add New Vehicle</legend>
+						<label htmlFor="brand">Brand</label>
 							<Field 
 											name="brand" 
 											id="brand" 
@@ -25,6 +38,7 @@ export class AddNewVehicleForm extends React.Component {
 											component={Input}
 											label="Brand"
 							/>
+						<label htmlFor="model">Model</label>
 							<Field 
 											name="model" 
 											id="model" 
@@ -32,6 +46,7 @@ export class AddNewVehicleForm extends React.Component {
 											component={Input}
 											label="Model"
 							/>
+						<label htmlFor="year">Year</label>
 							<Field 
 											name="year" 
 											id="year" 
@@ -39,6 +54,7 @@ export class AddNewVehicleForm extends React.Component {
 											component={Input}
 											label="Year"
 							/>
+						<label htmlFor="miles">Miles</label>
 							<Field 
 											name="miles" 
 											id="miles" 
@@ -46,15 +62,21 @@ export class AddNewVehicleForm extends React.Component {
 											component={Input}
 											label="Miles"
 							/>
-							<button
-											type="submit">
-											Submit
+							<button className="add-form button"
+											type="submit"
+											disabled={this.props.pristine || this.props.submitting} >
+												Submit
 							</button>
+				</fieldset>
 			</form>
+		</section>
 		);
 	}
 }
 
 export default reduxForm({
 		form: 'Add Vehicle',
+		// onSubmitFail: (errors, dispatch) => {
+		// 	if(errors)dispatch(focus('Add Vehicle', Object.keys(errors)[0]));
+		// }
 })(AddNewVehicleForm);

@@ -1,18 +1,10 @@
 import  React from 'react';
 import { connect } from 'react-redux';
-
 import { fetchVehicles, deleteVehicle } from '../../actions/vehicle-actions'
 import { Link } from 'react-router-dom';
-
-
-import Maintenance from '../Maintenance/Maintenance';
 import './Vehicle.css'
 
 export class Vehicle extends React.Component {
-	
-
-
-
 	onCancelClick(e){
 		console.log('closing form')
 	}
@@ -31,7 +23,8 @@ export class Vehicle extends React.Component {
 	render(){
 		console.log(this.props)
 		console.log(this.props.history.location.pathname === `/garage`)
-		console.log(this.props.history.location)
+		
+		
 
 		let vehicleListButtons = (
 		<>
@@ -53,14 +46,15 @@ export class Vehicle extends React.Component {
 			let editVehicleButtons = (
 				<>
 					<li>
-						<Link to={`/EditVehicle`} params={{ id:`${this.props._id}`}}>
+						{/* <Link to='/EditVehicle' params={{ id: this.props.id}}> */}
+						<Link to={{pathname: "/EditVehicle", query: {id: this.props.id}}} >
 							<button className="edit-vehicle button">
 								Edit Vehicle
 							</button>
 						</Link>
 					</li>
 					<li>
-						<Link to={`/AddMaintenance`} params={{ id: `${this.props.id}`}}>
+						<Link to={`/AddMaintenance`} params={{ id: this.props.id}}>
 							<button className="add-maintenance button">
 								Add Maintenance
 							</button>

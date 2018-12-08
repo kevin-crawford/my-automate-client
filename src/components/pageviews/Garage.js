@@ -5,7 +5,6 @@ import requiresLogin from './requires-login';
 import Spinner from 'react-spinkit';
 
 import { fetchVehicles } from '../../actions/vehicle-actions';
-import { Link } from 'react-router-dom';
 import './Garage.css';
 import Vehicle from '../Vehicles/Vehicle';
 import AddNewVehicle from '../Vehicles/AddNewVehicle'
@@ -43,7 +42,7 @@ class Garage extends React.Component {
 			)
 		} else if(!this.props.vehicles.length) {
 				return(
-					<>
+				<>
 					{error}
 					<div className="no-vehicles">
 						<p> No Vehicles Found </p>
