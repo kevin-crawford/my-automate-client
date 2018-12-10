@@ -1,11 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { deleteMaintenance, fetchSingleVehicle } from '../../actions/vehicle-actions';
+import { editMaintenance } from '../../actions/vehicle-actions';
 
 
 class SingleMaintenanceItem extends React.Component {
 
+	onDeleteClick(e) {
+		const maintenanceId = this.props.id;
+		const vehicleId = this.props.vehicle;
+		window.confirm("Are you sure you want to delete item?")
+		this.props.dispatch(deleteMaintenance(maintenanceId))
+		.then(() => this.props.dispatch(fetchSingleVehicle(vehicleId)));
+	}  
+
 	render() {
-		console.log(this.props)
 	
 	return (
 		<div className="maintenance wrapper">
@@ -13,14 +23,16 @@ class SingleMaintenanceItem extends React.Component {
 			<li>Kind:{this.props.kind}</li>
 			<li>Current Miles: {this.props.currentMiles}</li>
 			<li>Note: {this.props.note}</li>
-			<li>Reminder: {this.props.reminder}</li>
+			<li>Reminder: {this.props.reminder.toString()}</li>
 			<li>
-				<button className="viewButton" onClick={e => this.editSingleVehicle(e)}> 
-					Edit
-				</button>
-			</li>
+						<Link to={{pathname: "/EditMaintenance", query: {id: this.props.id}}}>
+							<button className="edit-maintenance button">
+								Edit
+							</button>
+						</Link>
+					</li>
 			<li>
-				<button className="viewButton" onClick={e => this.onDeleteClick(e)}> 
+				<button className="deleteButton" onClick={e => this.onDeleteClick(e)}> 
 					Delete
 				</button>
 			</li>

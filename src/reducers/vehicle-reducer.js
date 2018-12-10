@@ -8,7 +8,7 @@ const initialState = {
 			};
 
 
-const vehicleReducer = (state=initialState, action) => {
+const vehicleReducer = (state=initialState, action ) => {
 
 		var today = new Date();
 		var dd = today.getDate();
@@ -51,6 +51,28 @@ const vehicleReducer = (state=initialState, action) => {
 		return Object.assign({}, state, {
 			error: action.error
 		});
+	} else if (action.type === actions.EDIT_VEHICLE_SUCCESS) {
+		return Object.assign({}, state, {
+			vehicles: [...state.vehicles, {
+				vehicles: action.editedVehicle
+			}]
+		})
+	} else if (action.type === actions.EDIT_VEHICLE_ERROR) {
+		return Object.assign({}, state, {
+			error: action.error
+		});
+	} else if (action.type === actions.DELETE_VEHICLE_SUCCESS) {
+		return Object.assign({}, state, {
+			vehicles: [...state.vehicles]
+		});
+	} else if (action.type === actions.DELETE_VEHICLE_ERROR) {
+		return Object.assign({}, state, {
+			error: action.error
+		})
+	} else if (action.type === actions.ADD_MAINTENANCE_SUCCESS){
+		return Object.assign({}, state, {
+			vehicles: [...state.vehicles]
+		})
 	}
 	return state;
 }

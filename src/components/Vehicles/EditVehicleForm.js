@@ -1,10 +1,12 @@
 import React from 'react';
 import { reduxForm, Field, focus } from 'redux-form';
+import { editVehicle } from '../../actions/vehicle-actions';
 import {connect} from 'react-redux';
 import Input from '../pageviews/Input';
+import { nonEmpty, length, isTrimmed } from '../../validators';
 
-import { editVehicle } from '../../actions/vehicle-actions'
-import { required, nonEmpty, length, isTrimmed } from '../../validators';
+
+// const yearLength = length({min: 4, max: 4});
 
 import './AddNewVehicleForm.css';
 
@@ -15,14 +17,15 @@ export class EditVehicleForm extends React.Component {
 		console.log(values);
 		console.log('vehicle id', vehicleId)
 		
-		// console.log('edit vehicle values',values.kind,values.currentMiles,values.note, id);
-		// this.props.dispatch(editVehicle(values, id))
-		// .then(() => this.props.history.push(`/vehicle/${id}`));
+		console.log('edit vehicle values',values.brand,values.model,values.year,values.miles, vehicleId);
+		
+		this.props.dispatch(editVehicle(values, vehicleId))
+		.then(() => this.props.history.push(`/vehicle/${vehicleId}`));
 	}
 
 	render() {
 		let error;
-		const vehicleId = this.props.location.query.id;
+		const vehicleId = this.props.initialValues.id
 		
 		if (this.props.error) {
 			error = (
@@ -41,6 +44,15 @@ export class EditVehicleForm extends React.Component {
 					{error}
 					<fieldset>
 						<legend>Edit Vehicle</legend>
+						<label htmlFor="brand">Brand</label>
+						<Field
+							name="brand"
+							id="brand"
+							type="text"
+							component={Input}
+							label="Brand"
+							validate={[nonEmpty, isTrimmed]}
+						/>
 						<label htmlFor="kind">Model</label>
 						<Field
 							name="model"
@@ -48,6 +60,7 @@ export class EditVehicleForm extends React.Component {
 							type="text"
 							component={Input}
 							label="Model"
+							validate={[nonEmpty, isTrimmed]}
 						/>
 						<label htmlFor="year">Year</label>
 						<Field
@@ -56,6 +69,7 @@ export class EditVehicleForm extends React.Component {
 							type="number"
 							component={Input}
 							label="Year"
+							validate={[nonEmpty, isTrimmed]}
 						/>
 						<label htmlFor="miles">Miles</label>
 						<Field
@@ -64,9 +78,9 @@ export class EditVehicleForm extends React.Component {
 							type="text"
 							component={Input}
 							label="Miles"
+							validate={[nonEmpty, isTrimmed]}
 						/>
-						<button className="edit-form button" type="submit"
-							disabled={this.props.pristine || this.props.submitting} >
+						<button className="edit-form button" type="submit">
 							Submit
 						</button>
 					</fieldset>

@@ -5,21 +5,24 @@ import {connect} from 'react-redux';
 // PAGE VIEWS
 import LandingPage from './components/pageviews/LandingPage';
 import Navigation from './components/pageviews/Navigation';
-import Login from './components/pageviews/Login';
-import SignUpPage from './components/pageviews/SignUpPage';
 import Garage from './components/pageviews/Garage';
 
 // FORM IMPORTS --
+import Login from './components/pageviews/Login';
+import SignUpPage from './components/pageviews/SignUpPage';
 import AddNewVehicleForm from './components/Vehicles/AddNewVehicleForm'; 
 import EditVehicleForm  from './components/Vehicles/EditVehicleForm'; 
 
 // SINGLE VEHICLE IMPORT
 import Maintenance from './components/Maintenance/Maintenance';
+import AddMaintenanceForm from './components/Maintenance/AddMaintenanceForm';
+import EditMaintenanceForm from './components/Maintenance/EditMaintenanceForm';
 
 import './App.css';
 
 // AUTH
 import {refreshAuthToken} from './actions/auth';
+
 
 
 export class App extends React.Component {
@@ -62,7 +65,9 @@ export class App extends React.Component {
             <Route exact path="/garage" component={Garage} />
             <Route exact path="/vehicle/:vehicleId" component={Maintenance}/>
             <Route exact path="/AddNewVehicle" component={AddNewVehicleForm} />
+            <Route exact path="/AddMaintenance" component={AddMaintenanceForm} />
             <Route exact path="/EditVehicle" component={EditVehicleForm} />
+            <Route exact path="/EditMaintenance" component={EditMaintenanceForm}/>
           </main>
         </div>
     )

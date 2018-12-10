@@ -88,7 +88,6 @@ export const fetchVehicles = () => (dispatch, getState) => {
 };
 
 export const fetchSingleVehicle = vehicleId => (dispatch, getState) => {
-	console.log('fetching vehicles');
 	const authToken =  getState().auth.authToken;
 
 	return fetch(`${API_BASE_URL}/vehicles/vehicle/${vehicleId}`, {
@@ -100,7 +99,6 @@ export const fetchSingleVehicle = vehicleId => (dispatch, getState) => {
 		.then(res => normalizeResponseErrors(res))
 		.then(res => res.json())
 		.then(vehicle => {
-			console.log('vehicle', vehicle)
 			dispatch(fetchSingleVehicleSuccess(vehicle))
 		})
 		.catch( err => {
@@ -153,6 +151,7 @@ export const editVehicle = (vehicle, id) => (dispatch, getState) => {
 		model: vehicle.model,
 		year: vehicle.year,
 		miles: vehicle.miles,
+		id: id
 	}
 	
 	console.log('editing vehicle', vehicleToUpdate, id);
@@ -192,5 +191,130 @@ export const deleteVehicle = id => (dispatch, getState) => {
 	})
 	.catch( err => {
 		dispatch(deleteVehicleError(err));
+	});
+}
+
+
+///--- MAINTENANCE ACTIONS
+
+export const ADD_MAINTENANCE_SUCCESS = 'ADD_MAINTENANCE_SUCCESS';
+export const addMaintenanceSuccess = addMaintenance => ({
+	type: ADD_MAINTENANCE_SUCCESS,
+	addMaintenance
+});
+
+export const ADD_MAINTENANCE_ERROR = 'ADD_MAINTENANCE_ERROR'
+export const addMaintenanceError = error => ({
+	type: ADD_MAINTENANCE_ERROR,
+	error
+});
+
+export const EDIT_MAINTENANCE_SUCCESS = 'EDIT_MAINTENANCE_SUCCESS';
+export const editMaintenanceSuccess = editMaintenance => ({
+	type: EDIT_MAINTENANCE_SUCCESS,
+	editMaintenance
+});
+
+export const EDIT_MAINTENANCE_ERROR = 'EDIT_MAINTENANCE_ERROR';
+export const editMaintenanceError = error => ({
+	type: EDIT_MAINTENANCE_ERROR,
+	error
+});
+
+export const DELETE_MAINTENANCE_SUCCESS = 'DELETE_MAINTENANCE_SUCCESS';
+export const deleteMaintenanceSuccess = deleteMaintenance => ({
+	type: DELETE_MAINTENANCE_SUCCESS,
+	deleteMaintenance
+})
+
+export const DELETE_MAINTENANCE_ERROR = 'DELETE_MAINTENANCE_ERROR';
+export const deleteMaintenanceError = error => ({
+	type: DELETE_MAINTENANCE_ERROR,
+	error
+})
+
+export const addMaintenance = (maintenance, id) => (dispatch, getState) => {
+	console.log('adding maintenance', maintenance);
+	const authToken = getState().auth.authToken;
+	
+	const addedMaintenance = {
+		kind: maintenance.kind,
+		currentMiles: maintenance.currentMiles,
+		note: maintenance.note,
+		vehicleId: id
+	}
+
+	console.log(JSON.stringify(addedMaintenance));
+
+	return fetch(`${API_BASE_URL}/maintenance/add`, {
+		method: 'POST',
+		headers: {
+			'Content-type': 'application/json',
+			Authorization: `Bearer ${authToken}`,
+		},
+		body: JSON.stringify(addedMaintenance),
+	})
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(maintenanceData => {
+		console.log('Maintenance Data', maintenanceData);
+		dispatch(addMaintenanceSuccess(maintenanceData));
+	})
+	.catch( err => {
+		dispatch(addMaintenanceError(err));
+	});
+};
+
+export const editMaintenance = (maintenance, id)=> (dispatch, getState) => {
+	console.log('editing maintenance item', maintenance);
+	const authToken = getState().auth.authToken;
+
+	const editedMaintenance = {
+		kind: maintenance.kind,
+		currentMiles: maintenance.currentMiles,
+		note: maintenance.note,
+		vehicleId: id
+	}
+
+	console.log(JSON.stringify(editedMaintenance));
+
+	
+	return fetch(`${API_BASE_URL}/maintenance/edit/${id}`, {
+		method: 'PUT',
+		headers: {
+			'Content-type': 'application/json',
+			Authorization: `Bearer ${authToken}`,
+		},
+		body: JSON.stringify(editedMaintenance),
+	})
+	.then(res => normalizeResponseErrors(res))
+	.then(res => res.json())
+	.then(maintenanceData => {
+		console.log('Maintenance Data', maintenanceData);
+		dispatch(editMaintenanceSuccess(maintenanceData));
+	})
+	.catch( err => {
+		dispatch(editMaintenanceError(err));
+	});
+
+}
+
+export const deleteMaintenance = id => (dispatch, getState) => {
+	console.log('deleting maintenance item', id);
+	const authToken = getState().auth.authToken;
+
+	return fetch(`${API_BASE_URL}/maintenance/delete/${id}`, {
+		method: 'DELETE',
+		headers: {
+      Authorization: `Bearer ${authToken}`
+		}
+	})
+	.then(res => normalizeResponseErrors(res))
+	.then(() => {
+		console.log('success');
+		dispatch(deleteMaintenanceSuccess());
+	})
+	.catch( err => {
+		dispatch(deleteMaintenanceError(err));
 	});
 }

@@ -42,6 +42,8 @@ class Maintenance extends React.Component {
 													reminder={item.reminder}
 													created={item.created}
 													id={item._id}
+													vehicle={item.vehicle}
+													history={this.props.history}
 													index={index} key={index}
 						/>
 				)

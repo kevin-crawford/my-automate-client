@@ -1,62 +1,78 @@
-// import React from 'react';
-// import {reduxForm, Field} from 'redux-form';
-// import Input from '../pageviews/Input';
+import React from 'react';
+import {reduxForm, Field, focus} from 'redux-form';
+import Input from '../pageviews/Input';
 
-// import { addMaintenance } from '../../actions/maintenance-actions'
-// import './AddMaintenanceForm.css';
+import { addMaintenance } from '../../actions/vehicle-actions'
+// import { nonEmpty, isTrimmed } from '../../validators';
+import './AddMaintenanceForm.css';
 
-// export class AddMaintenanceForm extends React.Component {
-// 	onSubmit(values) {
+export class AddMaintenanceForm extends React.Component {
+	onSubmit(values, vehicleId) {
+		this.props.dispatch(addMaintenance(values, vehicleId))
+		.then(() => this.props.history.push(`/vehicle/${vehicleId}`));
+	}
 
-// 		console.log('maintenance values', values.kind,values.currentMiles,values.note);
+	render() {
+		let error;
+		const vehicleId = this.props.location.query.id;
 
-// 		this.props.dispatch(addMaintenance(values));
-// 		this.props.history.push('/garage');
-// 	}
+		if (this.props.error) {
+			error = (
+				<div className="form-error" aria-live="polite">
+					{this.props.error}
+				</div>
+			);
+		};
 
-// 	render() {
-// 		return (
-// 			<form	
-// 					onSubmit={this.props.handleSubmit(values =>
-// 							this.onSubmit(values)
-// 							)}>
-// 							<Field 
-// 											name="brand" 
-// 											id="brand" 
-// 											type="text" 
-// 											component={Input}
-// 											label="Brand"
-// 							/>
-// 							<Field 
-// 											name="model" 
-// 											id="model" 
-// 											type="text" 
-// 											component={Input}
-// 											label="Model"
-// 							/>
-// 							<Field 
-// 											name="year" 
-// 											id="year" 
-// 											type="number" 
-// 											component={Input}
-// 											label="Year"
-// 							/>
-// 							<Field 
-// 											name="miles" 
-// 											id="miles" 
-// 											type="number" 
-// 											component={Input}
-// 											label="Miles"
-// 							/>
-// 							<button
-// 											type="submit">
-// 											Submit
-// 							</button>
-// 			</form>
-// 		);
-// 	}
-// }
+		return (
+			<section className="add-maintenance form">
+				<form
+					onSubmit={this.props.handleSubmit(values =>
+						this.onSubmit(values, vehicleId)
+					)}>
+					{error}
+					<fieldset>
+						<legend>Add Maintenance</legend>
+						<label htmlFor="kind">Kind</label>
+						<Field
+							name="kind"
+							id="kind"
+							type="text"
+							component={Input}
+							label="Kind"
+							// validate={[nonEmpty, isTrimmed]}
+						/>
+						<label htmlFor="currentMiles">Current Miles</label>
+						<Field
+							name="currentMiles"
+							id="currentMiles"
+							type="number"
+							component={Input}
+							label="Current Miles"
 
-// export default reduxForm({
-// 		form: 'Add Vehicle',
-// })(AddNewVehicleForm);
+						/>
+						<label htmlFor="note">Maintenance Note</label>
+						<Field
+							name="note"
+							id="note"
+							type="text"
+							component={Input}
+							label="Note"
+						/>
+						<button className="add-maintenance button" type="submit">
+							Submit
+						</button>
+					</fieldset>
+				</form>
+			</section>
+		);
+	};
+};
+
+
+export default reduxForm({
+		form: 'Add Maintenance',
+		onSubmitFail: (errors, dispatch) => {
+			if(errors)dispatch(focus('Add Maintenance', Object.keys(errors)[0]));
+		}
+})(AddMaintenanceForm);
