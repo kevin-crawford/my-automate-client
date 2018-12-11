@@ -177,12 +177,11 @@ export const deleteVehicle = id => (dispatch, getState) => {
 	const authToken = getState().auth.authToken;
 	
 	console.log('deleting vehicle', id);
-
 	return fetch(`${API_BASE_URL}/vehicles/delete/${id}`, {
 		method: 'DELETE',
 		headers: {
       Authorization: `Bearer ${authToken}`
-		}
+		},
 	})
 	.then(res => normalizeResponseErrors(res))
 	.then(() => {
@@ -299,13 +298,16 @@ export const editMaintenance = (maintenance, id)=> (dispatch, getState) => {
 
 }
 
-export const deleteMaintenance = id => (dispatch, getState) => {
+export const deleteMaintenance = (id, vehicleId) => (dispatch, getState) => {
 	console.log('deleting maintenance item', id);
+	console.log(' deleting id from vehicle', JSON.stringify({vehicleId}));
 	const authToken = getState().auth.authToken;
 
 	return fetch(`${API_BASE_URL}/maintenance/delete/${id}`, {
 		method: 'DELETE',
+		body: JSON.stringify({vehicleId}),
 		headers: {
+			'Content-type': 'application/json',
       Authorization: `Bearer ${authToken}`
 		}
 	})

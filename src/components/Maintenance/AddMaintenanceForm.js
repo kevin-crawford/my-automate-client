@@ -33,16 +33,16 @@ export class AddMaintenanceForm extends React.Component {
 					{error}
 					<fieldset>
 						<legend>Add Maintenance</legend>
-						<label htmlFor="kind">Kind</label>
+						<label htmlFor="kind"></label>
 						<Field
 							name="kind"
 							id="kind"
 							type="text"
 							component={Input}
-							label="Kind"
+							label="Type"
 							// validate={[nonEmpty, isTrimmed]}
 						/>
-						<label htmlFor="currentMiles">Current Miles</label>
+						<label htmlFor="currentMiles"></label>
 						<Field
 							name="currentMiles"
 							id="currentMiles"
@@ -51,7 +51,7 @@ export class AddMaintenanceForm extends React.Component {
 							label="Current Miles"
 
 						/>
-						<label htmlFor="note">Maintenance Note</label>
+						<label htmlFor="note"></label>
 						<Field
 							name="note"
 							id="note"

@@ -11,7 +11,7 @@ class SingleMaintenanceItem extends React.Component {
 		const maintenanceId = this.props.id;
 		const vehicleId = this.props.vehicle;
 		window.confirm("Are you sure you want to delete item?")
-		this.props.dispatch(deleteMaintenance(maintenanceId))
+		this.props.dispatch(deleteMaintenance(maintenanceId, vehicleId))
 		.then(() => this.props.dispatch(fetchSingleVehicle(vehicleId)));
 	}  
 

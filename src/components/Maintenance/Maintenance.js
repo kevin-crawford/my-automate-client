@@ -32,22 +32,26 @@ class Maintenance extends React.Component {
 					<Vehicle {...this.props.singleVehicle} history={this.props.history} />
 				
 			)
-			
-			maintenanceItems = this.props.singleVehicle.maintenance.map((item, index) => {
-				return (
-						<SingleMaintenanceItem 
-													kind={item.kind}
-													currentMiles={item.currentMiles}
-													note={item.note}
-													reminder={item.reminder}
-													created={item.created}
-													id={item._id}
-													vehicle={item.vehicle}
-													history={this.props.history}
-													index={index} key={index}
-						/>
-				)
-			});
+				if(!this.props.singleVehicle.maintenance) {
+					maintenanceItems = (<div>No Maintenance Items</div>)
+				} else {
+				maintenanceItems = this.props.singleVehicle.maintenance.map((item, index) => {
+					return (
+							<SingleMaintenanceItem 
+														kind={item.kind}
+														currentMiles={item.currentMiles}
+														note={item.note}
+														reminder={item.reminder}
+														created={item.created}
+														id={item._id}
+														vehicle={item.vehicle}
+														history={this.props.history}
+														index={index} key={index}
+							/>
+					)
+				
+				});
+			}
 		};
 
 		return (

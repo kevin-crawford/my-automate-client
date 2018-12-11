@@ -45,7 +45,8 @@ class Garage extends React.Component {
 				<>
 					{error}
 					<div className="no-vehicles">
-						<p> No Vehicles Found </p>
+						<h1> No Vehicles Found </h1>
+						<h2>Would you like to add one?</h2>
 					</div>
 					<div className="NewVehicleBtn">
 					<AddNewVehicle />
