@@ -1,3 +1,47 @@
 * {
 	box-sizing: border-box;
 }
+
+html { 
+  background: url('https://images.unsplash.com/photo-1494441372960-6dce1eca6e57') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.button {
+	border: 3px solid #ffffff;
+	background: #9c3e96;
+	background: -webkit-gradient(linear, left top, left bottom, from(#d66565), to(#9c3e96));
+	background: -webkit-linear-gradient(top, #d66565, #9c3e96);
+	background: -moz-linear-gradient(top, #d66565, #9c3e96);
+	background: -ms-linear-gradient(top, #d66565, #9c3e96);
+	background: -o-linear-gradient(top, #d66565, #9c3e96);
+	background-image: -ms-linear-gradient(top, #d66565 0%, #9c3e96 100%);
+	padding: 20px 40px;
+	-webkit-border-radius: 14px;
+	-moz-border-radius: 14px;
+	border-radius: 14px;
+	-webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+	-moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+	box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+	text-shadow: #000000 0 1px 0;
+	color: #ffffff;
+	font-size: 24px;
+	font-family: helvetica, serif;
+	text-decoration: none;
+	vertical-align: middle;
+	}
+.button:hover {
+	border: 3px solid #000000;
+	text-shadow: #000000 0 1px 0;
+	background: #ff5900;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fa1d00), to(#ff5900));
+	background: -webkit-linear-gradient(top, #fa1d00, #ff5900);
+	background: -moz-linear-gradient(top, #fa1d00, #ff5900);
+	background: -ms-linear-gradient(top, #fa1d00, #ff5900);
+	background: -o-linear-gradient(top, #fa1d00, #ff5900);
+	background-image: -ms-linear-gradient(top, #fa1d00 0%, #ff5900 100%);
+	color: #fff;
+	}

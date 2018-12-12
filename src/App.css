@@ -4,16 +4,12 @@ header {
 
 main {
 	text-align: center;
-	margin-top: 150px;
+	margin-top: 40px;
 }
 
 section {
 	min-height: 200px;
 	padding: 30px 15px;
 	margin-bottom: 15px;
-	background-color: #bbb;
-}
-
-section:nth-child(even) {
-	background-color: #ddd;
+	background-color: #e4fdffa1;
 }
