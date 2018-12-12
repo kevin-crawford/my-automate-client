@@ -21,12 +21,12 @@ export function LandingPage(props) {
 				</p>
 
 				<Link to='/signup'>
-					<button className="signup button">
+					<button className="signup landing-button">
 						Sign Up
 						</button>
 				</Link>
 				<Link to='/login'>
-					<button className="login button">
+					<button className="login landing-button">
 						Login
 						</button>
 				</Link>

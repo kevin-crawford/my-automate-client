@@ -1,5 +1,5 @@
 import React from 'react';
-import {reduxForm, Field} from 'redux-form';
+import {reduxForm, Field, focus} from 'redux-form';
 import Input from '../pageviews/Input';
 
 import { addVehicle } from '../../actions/vehicle-actions'
@@ -62,10 +62,11 @@ export class AddNewVehicleForm extends React.Component {
 											component={Input}
 											label="Miles"
 							/>
-							<button className="add-form button"
-											type="submit"
-											disabled={this.props.pristine || this.props.submitting} >
-												Submit
+							<button className="add-form form-button" type="submit">
+								Submit
+							</button>
+							<button className="cancel-form form-button">
+								Cancel
 							</button>
 				</fieldset>
 			</form>
@@ -76,7 +77,7 @@ export class AddNewVehicleForm extends React.Component {
 
 export default reduxForm({
 		form: 'Add Vehicle',
-		// onSubmitFail: (errors, dispatch) => {
-		// 	if(errors)dispatch(focus('Add Vehicle', Object.keys(errors)[0]));
-		// }
+		onSubmitFail: (errors, dispatch) => {
+			if(errors)dispatch(focus('Add Vehicle', Object.keys(errors)[0]));
+		}
 })(AddNewVehicleForm);

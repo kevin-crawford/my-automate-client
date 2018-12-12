@@ -25,13 +25,13 @@ export class Vehicle extends React.Component {
 		<>
 			<li>
 				<Link to={`/vehicle/${this.props._id}`}>
-					<button className="viewButton" > 
+					<button className="view-vehicle form-button" > 
 						View
 					</button>
 				</Link>
 			</li>
 			<li>
-				<button className="deleteButton" onClick={e => this.onDeleteClick(e)}> 
+				<button className="delete-vehicle form-Button" onClick={e => this.onDeleteClick(e)}> 
 					Delete
 				</button>
 			</li>
@@ -42,14 +42,14 @@ export class Vehicle extends React.Component {
 				<>
 					<li>
 						<Link to={{pathname: "/EditVehicle", query: {id: this.props.id}}}>
-							<button className="edit-vehicle button">
+							<button className="edit-vehicle form-button">
 								Edit Vehicle
 							</button>
 						</Link>
 					</li>
 					<li>
 						<Link to={{pathname: "/AddMaintenance", query: {id: this.props.id}}}>
-							<button className="add-maintenance button">
+							<button className="add-maintenance form-button">
 								Add Maintenance
 							</button>
 						</Link>

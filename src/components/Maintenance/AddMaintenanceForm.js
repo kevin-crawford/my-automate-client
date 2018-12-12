@@ -59,8 +59,11 @@ export class AddMaintenanceForm extends React.Component {
 							component={Input}
 							label="Note"
 						/>
-						<button className="add-maintenance button" type="submit">
+						<button className="add-maintenance form-button" type="submit">
 							Submit
+						</button>
+						<button className="cancel-maintenance form-button">
+							Cancel
 						</button>
 					</fieldset>
 				</form>

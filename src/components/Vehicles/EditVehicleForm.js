@@ -80,8 +80,11 @@ export class EditVehicleForm extends React.Component {
 							label="Miles"
 							validate={[nonEmpty, isTrimmed]}
 						/>
-						<button className="edit-form button" type="submit">
+						<button className="edit-form form-button" type="submit">
 							Submit
+						</button>
+						<button className="cancel-form form-button">
+							Cancel
 						</button>
 					</fieldset>
 				</form>
