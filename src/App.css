@@ -1,15 +1,21 @@
+
+* {
+	box-sizing: border-box;
+}
+
+html { 
+  background: url('https://images.unsplash.com/photo-1494441372960-6dce1eca6e57') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 header {
 	padding: 45px 15px;
 }
 
 main {
 	text-align: center;
-	margin-top: 40px;
-}
-
-section {
-	min-height: 200px;
-	padding: 30px 15px;
-	margin-bottom: 15px;
-	background-color: #e4fdffa1;
+	margin-top: 20px;
 }

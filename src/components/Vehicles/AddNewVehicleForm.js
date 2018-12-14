@@ -3,7 +3,6 @@ import {reduxForm, Field, focus} from 'redux-form';
 import Input from '../pageviews/Input';
 
 import { addVehicle } from '../../actions/vehicle-actions'
-import './AddNewVehicleForm.css';
 
 export class AddNewVehicleForm extends React.Component {
 	onSubmit(values) {

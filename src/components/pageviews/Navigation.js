@@ -19,15 +19,20 @@ export class Navigation extends React.Component {
 		return(
 			<Fragment>
 				<nav role="navigation">
-					{/* <h1 className="Navigation-title">
-							<Link to={'/'} className="automate-title-link">AutoMate</Link>
-					</h1> */}
 					<ul className="Navigation">
 							<li>
-								<Link to="/garage">Garage</Link>
+								<Link to="/garage">
+									<button className="garage-redirectf">
+									<i className="fas fa-warehouse"></i>
+										Garage
+									</button>
+								</Link>
 							</li>
 							<li>
-								{<button id="logout" onClick={() => this.logOut()}>Log Out</button>}
+								<button id="logout" onClick={() => this.logOut()}>
+								<i className="fas fa-sign-out-alt"></i>
+								Log Out
+								</button>
 							</li>
 					</ul>
 				</nav>

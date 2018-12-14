@@ -3,9 +3,12 @@ import {Field, reduxForm, focus} from 'redux-form';
 import {registerUser} from '../../actions/users';
 import {login} from '../../actions/auth';
 import Input from './Input';
+import './Forms.css'
 import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
+
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
+
 
 export class SignUpForm extends React.Component {
 
@@ -72,11 +75,7 @@ export class SignUpForm extends React.Component {
 								id="confirmPassword"
 								validate={[required, matchesPassword, nonEmpty]}
 						/>
-				<button 
-						type="submit"
-						id="signupButton"
-						disabled={this.props.pristine || this.props.submitting}
-						>
+				<button type="submit" id="signupButton">
 						Sign Up
 				</button>
 			</fieldset>

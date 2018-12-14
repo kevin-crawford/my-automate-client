@@ -5,10 +5,10 @@ import requiresLogin from './requires-login';
 import Spinner from 'react-spinkit';
 
 import { fetchVehicles } from '../../actions/vehicle-actions';
-import './Garage.css';
+
 import Vehicle from '../Vehicles/Vehicle';
-import AddNewVehicle from '../Vehicles/AddNewVehicle'
-// import Vehicle from '../Vehicles/Vehicle'
+import AddNewVehicle from '../Vehicles/AddNewVehicle';
+import './Garage.css';
 
 class Garage extends React.Component {
 	
@@ -66,13 +66,15 @@ class Garage extends React.Component {
 	
 		return(
 			<div className="garage wrapper">
-				<h1>Vehicles</h1>
-					<div className="NewVehicleBtn">
-						<AddNewVehicle />
-					</div>
-					<div className="vehicles-list wrapper">
-						{vehiclesList}
-					</div>
+				<div className="banner-title">
+					<h1>Vehicles</h1>
+				</div>
+				<div className="vehicles-list wrapper">
+					{vehiclesList}
+				</div>
+				<div className="NewVehicleBtn">
+					<AddNewVehicle />
+				</div>
 			</div>
 			)
 		}

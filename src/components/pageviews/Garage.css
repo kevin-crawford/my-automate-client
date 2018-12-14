@@ -1,3 +1,28 @@
 .garage.wrapper {
 	margin-top: 150px;
 }
+
+.banner-title {
+	background: white;
+    width: 90%;
+    margin: 10px auto;
+}
+
+.AddNewVehicle button {
+	width: 80%;
+	height: 50px;
+}
+
+@media (min-width: 775px){
+	.banner-title {
+		width: 775px;
+		margin: auto;
+	}
+
+	.AddNewVehicle button {
+		width: 700px;
+		margin: auto;
+		margin-top: 25px;
+	}
+}
+

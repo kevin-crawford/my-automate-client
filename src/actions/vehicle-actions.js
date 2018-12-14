@@ -9,7 +9,7 @@ export const fetchVehiclesSuccess = fetchedVehicles => ({
 
 export const FETCH_VEHICLES_ERROR = 'FETCH_VEHICLES_ERROR';
 export const fetchVehiclesError = error => ({
-	type: FETCH_VEHICLES_SUCCESS,
+	type: FETCH_VEHICLES_ERROR,
 	error
 });
 
@@ -109,7 +109,7 @@ export const fetchSingleVehicle = vehicleId => (dispatch, getState) => {
 
 export const addVehicle = vehicle => (dispatch, getState) => {
 	console.log('adding vehicle', vehicle);
-	const authToken =  getState().auth.authToken;
+	const authToken = getState().auth.authToken;
 	const user = getState().auth.currentUser;
 	console.log('user', user)
 

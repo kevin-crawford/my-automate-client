@@ -4,17 +4,12 @@ import { editMaintenance } from '../../actions/vehicle-actions';
 import {connect} from 'react-redux';
 import Input from '../pageviews/Input';
 // import { nonEmpty, length, isTrimmed } from '../../validators';
+// const milesLength = length({min: 1, max: 6})
 
-
-// const yearLength = length({min: 4, max: 4});
-
-import './EditMaintenanceForm.css';
-
+import './MaintenanceForms.css';
 export class EditMaintenanceForm extends React.Component {
 
 	onSubmit(values, maintenanceId, vehicleId) {
-		
-	
 		
 		
 		console.log('vehicle id', vehicleId);
@@ -47,44 +42,51 @@ export class EditMaintenanceForm extends React.Component {
 
 		return (
 			<section className="edit-maintenance form">
-				<form
+				<form className="form-container"
 					onSubmit={this.props.handleSubmit(values =>
 						this.onSubmit(values, maintenanceId, vehicleId)
 					)}>
 					{error}
 					<fieldset>
-						<legend>Edit Maintenance Item</legend>
-						<label htmlFor="kind">Kind</label>
+					<label htmlFor="kind" className="form-title">Maintenance Type</label>
 						<Field
 							name="kind"
 							id="kind"
+							className="form-field"
 							type="text"
-							component={Input}
-							label="Kind"
+							component="select"
+							label="Maintenance Type"
 							// validate={[nonEmpty, isTrimmed]}
-						/>
-						<label htmlFor="kind">Current Vehicle Miles</label>
+						>
+							<option></option>
+							<option value="Oil">Oil</option>
+							<option value="Brakes">Brakes</option>
+							<option value="Tires">Tires</option>
+							<option value="Windshield Wipers">Windshield Wipers</option>
+						</Field>
+						<label htmlFor="currentMiles" className="form-title">Vehicle Miles At Time of Maintenance</label>
 						<Field
 							name="currentMiles"
 							id="currentMiles"
+							className="form-field"
 							type="number"
 							component={Input}
-							label="Current Miles"
-							// validate={[nonEmpty, isTrimmed]}
+							// validate={[nonEmpty, isTrimmed, milesLength]}
 						/>
-						<label htmlFor="note">Maintenance Note</label>
+						<label htmlFor="note" className="form-title">Maintenance Notes</label>
 						<Field
 							name="note"
 							id="note"
+							className="form-field"
 							type="text"
 							component={Input}
-							label="Note"
+							label="Maintenance Note To Edit"
 							// validate={[nonEmpty, isTrimmed]}
 						/>
-						<button className="edit-form form-button" type="submit">
+						<button className="edit-form submit-button" type="submit">
 							Submit
 						</button>
-						<button className="cancel-maintenance form-button">
+						<button className="cancel-maintenance submit-button">
 							Cancel
 						</button>
 					</fieldset>

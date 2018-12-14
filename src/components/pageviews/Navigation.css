@@ -20,19 +20,19 @@
 	padding: 0;
 	overflow: hidden;
 }
-
+/* 
 .Navigation a {
 	text-decoration: none;
 	color: white;
 	display: block;
 	padding: 14px 16px;
 	text-align: center;
-}
+} */
 
 .Navigation li {
 	list-style: none;
 	float: right;
-	/* margin-top: 15px; */
+	padding-right: 10px;
 }
 
 .Navigation li a:hover {

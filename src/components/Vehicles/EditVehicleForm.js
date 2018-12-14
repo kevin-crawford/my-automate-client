@@ -8,7 +8,6 @@ import { nonEmpty, length, isTrimmed } from '../../validators';
 
 // const yearLength = length({min: 4, max: 4});
 
-import './AddNewVehicleForm.css';
 
 export class EditVehicleForm extends React.Component {
 
@@ -36,15 +35,14 @@ export class EditVehicleForm extends React.Component {
 		};
 
 		return (
-			<section className="edit-vehicle form">
-				<form
+			<section className="edit-vehicle">
+				<form className="form-container"
 					onSubmit={this.props.handleSubmit(values =>
 						this.onSubmit(values, vehicleId)
 					)}>
 					{error}
 					<fieldset>
-						<legend>Edit Vehicle</legend>
-						<label htmlFor="brand">Brand</label>
+						<legend className="form-title">Edit Vehicle</legend>
 						<Field
 							name="brand"
 							id="brand"
@@ -53,7 +51,6 @@ export class EditVehicleForm extends React.Component {
 							label="Brand"
 							validate={[nonEmpty, isTrimmed]}
 						/>
-						<label htmlFor="kind">Model</label>
 						<Field
 							name="model"
 							id="model"
@@ -62,7 +59,6 @@ export class EditVehicleForm extends React.Component {
 							label="Model"
 							validate={[nonEmpty, isTrimmed]}
 						/>
-						<label htmlFor="year">Year</label>
 						<Field
 							name="year"
 							id="year"
@@ -71,7 +67,6 @@ export class EditVehicleForm extends React.Component {
 							label="Year"
 							validate={[nonEmpty, isTrimmed]}
 						/>
-						<label htmlFor="miles">Miles</label>
 						<Field
 							name="miles"
 							id="miles"

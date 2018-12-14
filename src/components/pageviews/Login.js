@@ -5,7 +5,7 @@ import {login} from '../../actions/auth';
 import {required, nonEmpty} from '../../validators';
 import  {Link} from 'react-router-dom';
 
-import './Login.css'
+import './Forms.css';
 
 export class Login extends React.Component {
 
@@ -39,6 +39,7 @@ export class Login extends React.Component {
 								name="username"
 								placeholder="Username"
 								id="username"
+								class="form-field"
 								validate={[required, nonEmpty]}
 						/>
 						<label htmlFor="password">Password</label>
@@ -48,14 +49,17 @@ export class Login extends React.Component {
 								name="password"
 								placeholder="Password"
 								id="password"
+								class="form-field"
 								validate={[required, nonEmpty]}
 						/>
+						<div className="submit-container">
 						<button id="login-button" type="submit" disabled={this.props.pristine || this.props.submitting} >
 								Login
 						</button>
+						</div>
 					</fieldset>
+					<Link to="/signup" className="signup-anchor">Dont Have an Account? Sign up</Link>
 				</form>
-				<Link to="/signup" className="signup-anchor">Sign up</Link>
 		</section>
 		)
 	}
