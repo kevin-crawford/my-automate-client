@@ -2,9 +2,10 @@
 	background: #f8f8f8fa;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	height: 300px;
-	width: 10px auto;
-	margin-bottom: 50px
+	margin: auto 20px;
 
+	margin-bottom: 50px;
+	border-radius: 5px;
 }
 
 .vehicle h2 {
@@ -15,7 +16,8 @@ li {
   list-style-type: none;
 }
 .vehicle.wrapper {
-	margin-top: 100px;
+	margin-top: 50px;
+	margin-bottom: 25px;
 }
 
 .view-vehicle img {
