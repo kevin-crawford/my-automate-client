@@ -12,6 +12,9 @@
 
 ### Sign Up / Register
 
+![Screenshot](/images/login.png)
+![Screenshot](/images/register.png)
+
 ### Vehicle Garage
 <p>User Should add vehicles they own into the garage.</p> 
 
@@ -24,6 +27,7 @@
 <p>User Can add maintenance items at the single vehicle view page</p>
 
 ![Screenshot](/images/singlevehicle.png)
+
 
 ### Add Maintenance
 
