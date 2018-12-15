@@ -15,19 +15,19 @@
 ### Vehicle Garage
 <p>User Should add vehicles they own into the garage.</p> 
 
-![Screenshot](../images/garage.png)
+![Screenshot](/images/garage.png)
 
 ### Add Vehicle
-![Screenshot](../images/addVehicle.png)
+![Screenshot](/images/addVehicle.png)
 
 ### Single Vehicle View
 <p>User Can add maintenance items at the single vehicle view page</p>
 
-![Screenshot](../images/singlevehicle.png)
+![Screenshot](/images/singlevehicle.png)
 
 ### Add Maintenance
 
-![Screenshot](../images/addMaintenance.png)
+![Screenshot](/images/addMaintenance.png)
 
 ## Functionality
 <ul>
@@ -35,16 +35,24 @@
 	<li>User is able to add/update/delete vehicles in their Garage which updates the database</li>
 </ul>
 
-### Technologies Used:
+## Technologies Used:
 
-##<b>Front-End</b>
+###<b>Front-End</b>
 * HTML5
 * CSS3 
 * Javascript ES6
 * JQuery
 
-##<b>Back-End</b>
+###<b>Back-End</b>
 * Passport.js 
 * BCrpyt.js 
 * Mongoose 
+
+### Developer Roadmap
+## This is v1.0 of the app, future enhancements include
+<ul>
+	<li>Enabling email notifications for maintenance items for vehicles on 30 day intervals </li>
+	<li>Integration with vehicle OBD readers to get live up to date vehicle information</li>
+	<li>Vehicle Maintenance Code Integration</li>
+</ul>
 
