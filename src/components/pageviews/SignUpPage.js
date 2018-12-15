@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import { Redirect, Link} from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 
 import SignUp from './SignUp';
 
@@ -12,9 +12,7 @@ export function SignUpPage(props) {
     }
     return (
         <div className="home">
-            <h2>Register for Automate</h2>
                 <SignUp />
-            <Link to="/login">Login</Link>
         </div>
     );
 }

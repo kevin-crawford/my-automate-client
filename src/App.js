@@ -65,8 +65,8 @@ export class App extends React.Component {
             <Route exact path="/garage" component={Garage} />
             <Route exact path="/vehicle/:vehicleId" component={Maintenance}/>
             <Route exact path="/AddNewVehicle" component={AddNewVehicleForm} />
-            <Route exact path="/AddMaintenance" component={AddMaintenanceForm} />
-            <Route exact path="/EditVehicle" component={EditVehicleForm} />
+            <Route exact path="/AddMaintenance/:vehicleId" component={AddMaintenanceForm} />
+            <Route exact path="/EditVehicle/:vehicleId" component={EditVehicleForm} />
             <Route exact path="/EditMaintenance" component={EditMaintenanceForm}/>
           </main>
         </div>

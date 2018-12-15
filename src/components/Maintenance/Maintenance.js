@@ -57,10 +57,14 @@ class Maintenance extends React.Component {
 		};
 
 		return (
-
-			<div className="vehicle wrapper">
-				{singleVehicle}
-				{maintenanceItems}
+			<div className="single-vehicle wrapper">
+				<div className="banner-title">
+					<h2>Single Vehicle View</h2>
+				</div>
+				<div className="vehicle wrapper">
+					{singleVehicle}
+					{maintenanceItems}
+				</div>
 			</div>
 		)
 	}

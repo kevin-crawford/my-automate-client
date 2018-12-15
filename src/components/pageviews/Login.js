@@ -58,7 +58,9 @@ export class Login extends React.Component {
 						</button>
 						</div>
 					</fieldset>
-					<Link to="/signup" className="signup-anchor">Dont Have an Account? Sign up</Link>
+					<p>Dont Have an Account?</p>
+					<Link to="/signup" className="signup-anchor"> Sign up</Link>
+					<Link to="/"><p>Back</p></Link>
 				</form>
 		</section>
 		)

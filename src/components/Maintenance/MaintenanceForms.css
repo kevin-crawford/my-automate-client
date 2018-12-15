@@ -18,12 +18,16 @@
 	font-family: 'Helvetica Neue',Helvetica,sans-serif;
 	text-decoration: none;
 	vertical-align: middle;
-	min-width: 396px;
+	max-width: 400px;
 	padding: 20px;
-	width: 300px;
+	width: 85%;
 	margin: auto;
-	margin-top: 100px;
+	margin-top: 150px;
 
+	}
+
+	.form-container fieldset{
+		width: 100%
 	}
 .form-field {
 	border: 1px solid #000000;
@@ -37,7 +41,9 @@
 	box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(000,000,000,0.7) 0 0px 0px;
 	padding:8px;
 	margin-bottom:20px;
-	width:280px;
+	width:80%;
+	display:block;
+	margin: auto;
 	}
 .form-field:focus {
 	background: #ebebeb;
@@ -55,12 +61,11 @@
 	color: #000000;
 	text-shadow: #ffffff 0 1px 0;
 	}
-	.form-input {
-		margin-bottom: 20px;
+	.form-input label {
+		margin-top: 20px;
 	}
 .submit-container {
 	margin:8px 0;
-	text-align:right;
 	}
 .submit-button {
 	border: 1px solid #447314;
@@ -78,7 +83,6 @@
 	-webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
 	-moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
 	box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
-	text-shadow: #addc7e 0 1px 0;
 	color: #ffffff;
 	font-family: helvetica, serif;
 	padding: 8.5px 18px;
@@ -109,4 +113,10 @@
 	background: -o-linear-gradient(top, #6aa436, #8dc059);
 	background-image: -ms-linear-gradient(top, #6aa436 0%, #8dc059 100%);
 	color: #fff;
+	}
+
+input#currentMiles,
+input#note,
+select#kind {
+		width: 90%;
 	}

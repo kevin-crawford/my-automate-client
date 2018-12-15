@@ -9,10 +9,28 @@
 		border-radius: 25px
 }
 
-/* .AddNewVehicle button {
-	width: 94%;
-	height: 50px;
-} */
+.no-vehicles h1 {
+	font-family: 'Aleo', serif;
+	color: white;
+}
+.no-vehicles h2 {
+	font-family: 'Aleo', serif;
+	color: white;
+}
+
+.banner-title h1 {
+	font-family: 'Aleo', serif;
+}
+
+.AddNewVehicle {
+	margin-bottom: 40px;
+}
+
+.no-vehicles {
+	background-color: #000000a3;
+	border-radius: 25px;
+	padding: 10px;
+}
 .AddNewVehicle button {
 	border: 2px solid #0a3c59;
 	width: 94%;
@@ -24,7 +42,7 @@
 	background: -ms-linear-gradient(top, #65a9d7, #3e779d);
 	background: -o-linear-gradient(top, #65a9d7, #3e779d);
 	background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
-	padding: 20px 40px;
+	padding: 11px 40px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -33,12 +51,12 @@
 	box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
 	text-shadow: #7ea4bd 0 1px 0;
 	color: #06426c;
-	font-size: 24px;
+	font-size: 18px;
 	font-family: helvetica, serif;
 	text-decoration: none;
 	vertical-align: middle;
 	}
-	.AddNewVehicle button {
+	.AddNewVehicle button:hover {
 	border: 2px solid #0a3c59;
 	text-shadow: #1e4158 0 1px 0;
 	background: #3e779d;
@@ -50,7 +68,7 @@
 	background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
 	color: #fff;
 	}
-	.AddNewVehicle button {
+	.AddNewVehicle button:active {
 	text-shadow: #1e4158 0 1px 0;
 	border: 2px solid #0a3c59;
 	background: #65a9d7;
@@ -71,9 +89,15 @@
 	}
 
 	.AddNewVehicle button {
-		width: 700px;
+		width: 775px;
 		margin: auto;
 		margin-top: 25px;
+		font-size: 26px;
+	}
+
+	.no-vehicles {
+		width: 700px;
+		margin: auto;
 	}
 }
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import {reduxForm, Field, focus} from 'redux-form';
 import Input from '../pageviews/Input';
-
+import {Link} from 'react-router-dom';
 import { addMaintenance } from '../../actions/vehicle-actions'
-// import { nonEmpty, isTrimmed } from '../../validators';
+import {required, minValue0 } from '../../validators';
 import './MaintenanceForms.css';
 
 export class AddMaintenanceForm extends React.Component {
@@ -14,8 +14,7 @@ export class AddMaintenanceForm extends React.Component {
 
 	render() {
 		let error;
-		const vehicleId = this.props.location.query.id;
-
+		const vehicleId = this.props.match.params.vehicleId;
 		if (this.props.error) {
 			error = (
 				<div className="form-error" aria-live="polite">
@@ -42,13 +41,14 @@ export class AddMaintenanceForm extends React.Component {
 							type="text"
 							component="select"
 							label="Maintenance Type"
-							// validate={[nonEmpty, isTrimmed]}
 						>
-							<option></option>
+						
+							<option disabled defaultValue>---Select An Option---</option>
 							<option value="Oil">Oil</option>
 							<option value="Brakes">Brakes</option>
 							<option value="Tires">Tires</option>
 							<option value="Windshield Wipers">Windshield Wipers</option>
+						
 						</Field>
 						<label htmlFor="currentMiles" className="form-title">Vehicle Miles At Time of Maintenance</label>
 						<Field
@@ -57,6 +57,7 @@ export class AddMaintenanceForm extends React.Component {
 							type="number"
 							className="form-field"
 							component={Input}
+							validate={[required, minValue0]}
 						/>
 						<label htmlFor="note" className="form-title">Maintenance Notes</label>
 						<Field
@@ -65,14 +66,17 @@ export class AddMaintenanceForm extends React.Component {
 							type="text"
 							className="form-field"
 							component={Input}
+							validate={[required]}
 						/>
 						
 						<button className="add-maintenance submit-button" type="submit">
 							Submit
 						</button>
-						<button className="cancel-maintenance submit-button">
-							Cancel
-						</button>
+						<Link to={`/vehicle/${vehicleId}`}>
+							<button className="cancel-maintenance submit-button" type="#">
+								Cancel
+							</button>
+						</Link>
 					</fieldset>
 				</form>
 			</section>

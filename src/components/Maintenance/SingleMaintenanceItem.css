@@ -1,28 +1,43 @@
 .maintenance.wrapper {
 	background: #f4f4f4e6;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	height: 315px;
-}
-.maintenance h3 {
-	padding-top: 15px;
+	height: 345px;
 }
 
 .maintenance h2 {
 	list-style: none;
   display: flex;
   flex-wrap: wrap;
-  padding: 10px;
+  padding-left: 10px;
 }
 
-.maintenance label {
-	display: inline-block;
-	width: 100px;
-	text-align: left;
+
+
+.maintenance-label {
+	margin: 0; 
+  padding: 0; 
+  display: block; 
+  font-size: 100%; 
+  padding-top: .1em; 
+  padding-right: .25em; 
+  width: 6em; 
+  text-align: right; 
+  float: left; 
+	font-family: 'Staatliches', cursive;
 }
 
-.maintenance li {
-	display: inline-block;
-	text-align: right;
-	margin-bottom: 20px;
+.maintenance-item {
+	margin: 0; 
+  padding: 0; 
+  display: block; 
+  font-size: 100%;
+}
+
+.maintenance.wrapper:last-child {
+  margin-bottom: 100px;
+}
+
+.maintenance-button {
+  display: inline-block
 }
 

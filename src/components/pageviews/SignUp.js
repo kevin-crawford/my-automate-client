@@ -1,10 +1,11 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
+import {Link} from 'react-router-dom';
 import {registerUser} from '../../actions/users';
 import {login} from '../../actions/auth';
 import Input from './Input';
 import './Forms.css'
-import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
+import {required, nonEmpty, matches, length, isTrimmed, email} from '../../validators';
 
 const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
@@ -34,7 +35,7 @@ export class SignUpForm extends React.Component {
       )}>
 
 			<fieldset>
-			<legend>Sign Up</legend>
+			<legend>Register For Automate</legend>
 				<label htmlFor="firstName" >First Name</label>
 				<Field component={Input} type='text' placeholder="First Name" name="firstName" />
 				<label htmlFor="firstName" >Last Name</label>
@@ -55,7 +56,7 @@ export class SignUpForm extends React.Component {
 								name="email"
 								placeholder="Email"
 								id="email"
-								validate={[required, nonEmpty, isTrimmed]}
+								validate={[required, nonEmpty, isTrimmed, email]}
 						/>
 				<label htmlFor="password"> Password </label>
 				<Field 
@@ -75,10 +76,16 @@ export class SignUpForm extends React.Component {
 								id="confirmPassword"
 								validate={[required, matchesPassword, nonEmpty]}
 						/>
-				<button type="submit" id="signupButton">
+				<div className="submit-container">
+				<button type="submit" id="login-button">
 						Sign Up
 				</button>
+				</div>
 			</fieldset>
+			<p>Have An Account?</p>
+			<Link to="/login"> Login</Link>
+
+			<Link to="/"><p>Back</p></Link>
 			</form>
 		</section>
 		)

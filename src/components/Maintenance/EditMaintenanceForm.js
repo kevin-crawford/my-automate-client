@@ -1,12 +1,14 @@
 import React from 'react';
 import { reduxForm, Field, focus } from 'redux-form';
 import { editMaintenance } from '../../actions/vehicle-actions';
-import {connect} from 'react-redux';
-import Input from '../pageviews/Input';
-// import { nonEmpty, length, isTrimmed } from '../../validators';
-// const milesLength = length({min: 1, max: 6})
-
 import './MaintenanceForms.css';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import Input from '../pageviews/Input';
+import { length, required, minValue0} from '../../validators';
+const milesLength = length({min: 1, max: 6})
+
+
 export class EditMaintenanceForm extends React.Component {
 
 	onSubmit(values, maintenanceId, vehicleId) {
@@ -56,9 +58,8 @@ export class EditMaintenanceForm extends React.Component {
 							type="text"
 							component="select"
 							label="Maintenance Type"
-							// validate={[nonEmpty, isTrimmed]}
 						>
-							<option></option>
+							<option disabled defaultValue>---Select An Option---</option>
 							<option value="Oil">Oil</option>
 							<option value="Brakes">Brakes</option>
 							<option value="Tires">Tires</option>
@@ -71,7 +72,7 @@ export class EditMaintenanceForm extends React.Component {
 							className="form-field"
 							type="number"
 							component={Input}
-							// validate={[nonEmpty, isTrimmed, milesLength]}
+							validate={[required, milesLength, minValue0]}
 						/>
 						<label htmlFor="note" className="form-title">Maintenance Notes</label>
 						<Field
@@ -86,9 +87,11 @@ export class EditMaintenanceForm extends React.Component {
 						<button className="edit-form submit-button" type="submit">
 							Submit
 						</button>
-						<button className="cancel-maintenance submit-button">
-							Cancel
-						</button>
+						<Link to={`/vehicle/${vehicleId}`}>
+							<button className="cancel-maintenance submit-button" type="#">
+								Cancel
+							</button>
+						</Link>
 					</fieldset>
 				</form>
 			</section>
@@ -97,17 +100,6 @@ export class EditMaintenanceForm extends React.Component {
 };
 
 const mapStateToProps = state => ({
-
-
-	// Get maintenance id from query we passed into form, assign it to a variable.
-	// let currentId = this.props.location.query.id
-
-	// get Index of maintenance item we want to edit by comparing our query to the maintenance.currentItem.id in our state.vehicles.maintenance array. 
-	// let currentIndex = state.vehicle.singleVehicle.maintenance.findIndex((singleMaintenance, currentId) => singleMaintenance.id == currentId)
-
-	// once we have the index of the current maintenance item, set the initial values of our form to the items in our index.
-	// initialValues: state.vehicle.singleVehicle.maintenance[currentIndex]
-
 	initialValues: state.vehicle.singleVehicle
 })
 

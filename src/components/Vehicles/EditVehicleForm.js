@@ -2,8 +2,9 @@ import React from 'react';
 import { reduxForm, Field, focus } from 'redux-form';
 import { editVehicle } from '../../actions/vehicle-actions';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import Input from '../pageviews/Input';
-import { nonEmpty, length, isTrimmed } from '../../validators';
+import { nonEmpty, length, isTrimmed, minValue0 } from '../../validators';
 
 
 // const yearLength = length({min: 4, max: 4});
@@ -43,44 +44,44 @@ export class EditVehicleForm extends React.Component {
 					{error}
 					<fieldset>
 						<legend className="form-title">Edit Vehicle</legend>
+						<label htmlFor="brand">Brand</label>
 						<Field
 							name="brand"
 							id="brand"
 							type="text"
 							component={Input}
-							label="Brand"
 							validate={[nonEmpty, isTrimmed]}
 						/>
+						<label htmlFor="model">Model</label>
 						<Field
 							name="model"
 							id="model"
 							type="text"
 							component={Input}
-							label="Model"
 							validate={[nonEmpty, isTrimmed]}
 						/>
+						<label htmlFor="year">Year</label>
 						<Field
 							name="year"
 							id="year"
 							type="number"
 							component={Input}
-							label="Year"
 							validate={[nonEmpty, isTrimmed]}
 						/>
+						<label htmlFor="miles">Miles</label>
 						<Field
 							name="miles"
 							id="miles"
 							type="text"
 							component={Input}
-							label="Miles"
-							validate={[nonEmpty, isTrimmed]}
+							validate={[nonEmpty, isTrimmed, minValue0]}
 						/>
-						<button className="edit-form form-button" type="submit">
+						<button className="edit-form submit-button" type="submit">
 							Submit
 						</button>
-						<button className="cancel-form form-button">
-							Cancel
-						</button>
+						<Link to={`/vehicle/${vehicleId}`}><button className="cancel-form submit-button">
+						Cancel	
+						</button></Link>
 					</fieldset>
 				</form>
 			</section>

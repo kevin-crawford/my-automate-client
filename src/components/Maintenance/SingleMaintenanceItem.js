@@ -35,7 +35,7 @@ class SingleMaintenanceItem extends React.Component {
 			day = "0" + day;
 		}
 
-		return day+month+year;
+		return `${day} / ${month} / ${year}`;
 	}
 	
 
@@ -49,42 +49,41 @@ class SingleMaintenanceItem extends React.Component {
 				<h2>0{this.props.index + 1}</h2>
 				<h3>{this.props.kind} Maintenance</h3>
 			</div>
-
 				<div className="list-item block">
-					<label htmlFor="kind">Kind</label>
-					<li id="kind">{this.props.kind}</li>
+					<label htmlFor="kind" className="maintenance-label">Kind</label>
+					<p className="maintenance-item">{this.props.kind}</p>
 				</div>
 
 				<div className="list-item block">
-					<label htmlFor="currentMiles">Current Miles</label>
-					<li id="currentMiles"> {this.props.currentMiles}</li>
+					<label htmlFor="currentMiles" className="maintenance-label">Current Miles</label>
+					<p className="maintenance-item"> {this.props.currentMiles}</p>
 				</div>
 
 				<div className="list-item block">
-					<label htmlFor="Note">Note</label>
-					<li>{this.props.note}</li>
+					<label htmlFor="Note" className="maintenance-label">Note</label>
+					<p className="maintenance-item">{this.props.note}</p>
 				</div>
 
 				<div className="list-item block">
-					<label htmlFor="dateAdded">Date Added</label>
-					<li>{this.formatDate()}</li>
+					<label htmlFor="dateAdded" className="maintenance-label">Date Added</label>
+					<p className="maintenance-item">{this.formatDate()}</p>
 				</div>
 
 				<div className="list-item block">
-					<li>
+					<p className="maintenance-button">
 						<Link to={{ pathname: "/EditMaintenance", query: { id: this.props.id } }}>
 							<button className="edit-maintenance button">
 							<i className="far fa-edit"></i>
 								Edit
 								</button>
 						</Link>
-					</li>
-					<li>
+					</p>
+					<p className="maintenance-button">
 						<button className="deleteButton" onClick={e => this.onDeleteClick(e)}>
 						<i className="fas fa-minus-circle"></i>
 							Delete
 						</button>
-					</li>
+					</p>
 				</div>
 			</div>
 		)
