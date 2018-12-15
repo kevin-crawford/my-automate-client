@@ -22,7 +22,7 @@ export class Navigation extends React.Component {
 					<ul className="Navigation">
 						<li className="brand-wrapper">
 							<div id="branding">
-								AutoMate
+								AUTOMATE
 								<p>: Maintenance Itemizer</p>
 							</div>
 						</li>

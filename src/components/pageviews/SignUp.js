@@ -42,39 +42,39 @@ export class SignUpForm extends React.Component {
 				<Field component={Input} type='text' placeholder="Last Name" name="lastName" />
 				<label htmlFor="username"> Username </label>
 				<Field 
-								component={Input}
-								type="text"
-								name="username"
-								placeholder="Username"
-								id="username"
-								validate={[required, nonEmpty, isTrimmed]}
+						component={Input}
+						type="text"
+						name="username"
+						placeholder="Username"
+						id="username"
+						validate={[required, nonEmpty, isTrimmed]}
 						/>
 				<label htmlFor="email"> Email </label>
 				<Field 
-								component={Input}
-								type="text"
-								name="email"
-								placeholder="Email"
-								id="email"
-								validate={[required, nonEmpty, isTrimmed, email]}
+						component={Input}
+						type="text"
+						name="email"
+						placeholder="Email"
+						id="email"
+						validate={[required, nonEmpty, isTrimmed, email]}
 						/>
 				<label htmlFor="password"> Password </label>
 				<Field 
-								component={Input}
-								type="password"
-								name="password"
-								placeholder="Password"
-								id="password"
-								validate={[required, passwordLength, isTrimmed]}
+						component={Input}
+						type="password"
+						name="password"
+						placeholder="Password"
+						id="password"
+						validate={[required, passwordLength, isTrimmed]}
 						/>
 				<label htmlFor="passwordConfirm">Confirm Password</label>
 				<Field 
-								component={Input}
-								type="password"
-								name="confirmPassword"
-								placeholder="Confirm Password"
-								id="confirmPassword"
-								validate={[required, matchesPassword, nonEmpty]}
+						component={Input}
+						type="password"
+						name="confirmPassword"
+						placeholder="Confirm Password"
+						id="confirmPassword"
+						validate={[required, matchesPassword, nonEmpty]}
 						/>
 				<div className="submit-container">
 				<button type="submit" id="login-button">
@@ -83,8 +83,7 @@ export class SignUpForm extends React.Component {
 				</div>
 			</fieldset>
 			<p>Have An Account?</p>
-			<Link to="/login"> Login</Link>
-
+			<Link to="/login"><p>Login</p></Link>
 			<Link to="/"><p>Back</p></Link>
 			</form>
 		</section>

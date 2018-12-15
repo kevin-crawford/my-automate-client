@@ -18,11 +18,13 @@ li.brand-wrapper {
 	float: left;
 	color: white;
 	font-size: 24px;
+	font-family: 'Tajawal', sans-serif;
 }
 
 .Navigation #branding p {
 	display: inline-block;
 	font-size: 20px;
+	font-family: 'Tajawal', sans-serif;
 }
 
 .Navigation .nav-button {

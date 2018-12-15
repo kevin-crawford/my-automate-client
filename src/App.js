@@ -53,7 +53,7 @@ export class App extends React.Component {
     }
     clearInterval(this.refreshInterval);
   }
-
+// Routing for website components
   render() {
     return (
         <div className="router-wrapper">
@@ -73,7 +73,7 @@ export class App extends React.Component {
     )
   }
 }
-
+// finding state of user and checking for auth token, utilized in refreshing auth token while logged in
 const mapStateToProps = state => ({
   hasAuthToken: state.auth.authToken !== null,
   loggedIn: state.auth.currentUser !== null

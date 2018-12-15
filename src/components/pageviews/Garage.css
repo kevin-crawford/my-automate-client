@@ -6,7 +6,10 @@
 	background: white;
     width: 90%;
 		margin: 10px auto;
-		border-radius: 25px
+		border-radius: 25px;
+		padding: 5px;
+		font-family: 'Aleo', serif;
+		font-size: 24px;
 }
 
 .no-vehicles h1 {

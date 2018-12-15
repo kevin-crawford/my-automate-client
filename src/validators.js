@@ -1,3 +1,5 @@
+// form validation methods, imported into nescessary files 
+
 export const required = value => (value ? undefined : 'Required');
 
 export const nonEmpty = value =>

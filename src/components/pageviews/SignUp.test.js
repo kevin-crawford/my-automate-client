@@ -1,22 +1,22 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 
-import EditMaintenanceForm from './EditMaintenanceForm';
+import SignUp from './SignUp';
 
-describe('<EditMaintenanceForm />', () => {
+describe('<SignUp />', () => {
 	it('Renders without crashing', () => {
 			shallow(<EditMaintenanceForm />);
 	});
 
 	it('Renders the edit button initially', () => {
 			const wrapper = shallow(<EditMaintenanceForm />);
-			expect(wrapper.hasClass('edit-maintenance')).toEqual(true);
+			expect(wrapper.hasClass('signup')).toEqual(true);
 	});
 
 	it('Should render the edit form when editing', () => {
 			const wrapper = shallow(<EditMaintenanceForm />);
 			wrapper.update();
-			expect(wrapper.hasClass('edit-maintenance')).toEqual(true);
+			expect(wrapper.hasClass('signup')).toEqual(true);
 	});
 
 
@@ -29,11 +29,3 @@ describe('<EditMaintenanceForm />', () => {
 			wrapper.simulate('submit');
 			expect(callback).toHaveBeenCalledWith(value);
 	});
-
-	it('Should not fire onAdd if the input is empty', () => {
-			const callback = jest.fn();
-			const wrapper = mount(<AddMaintenanceForm onSubmit={callback} />);
-			wrapper.simulate('submit');
-			expect(callback).not.toHaveBeenCalled();
-	});
-});

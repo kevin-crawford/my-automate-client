@@ -66,9 +66,6 @@ class Garage extends React.Component {
 	
 		return(
 			<div className="garage wrapper">
-				<div className="banner-title">
-					<h1>Vehicles</h1>
-				</div>
 				<div className="vehicles-list wrapper">
 					{vehiclesList}
 				</div>

@@ -1,7 +1,7 @@
 .maintenance.wrapper {
 	background: #f4f4f4e6;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	height: 345px;
+	height: 365px;
 }
 
 .maintenance h2 {
@@ -9,9 +9,13 @@
   display: flex;
   flex-wrap: wrap;
   padding-left: 10px;
+  
 }
 
-
+.maintenance h3 {
+  font-family: 'Staatliches', cursive;
+  font-size: 26px;
+}
 
 .maintenance-label {
 	margin: 0; 
@@ -31,6 +35,7 @@
   padding: 0; 
   display: block; 
   font-size: 100%;
+  font-family: 'Nunito', sans-serif;
 }
 
 .maintenance.wrapper:last-child {

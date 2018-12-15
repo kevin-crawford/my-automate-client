@@ -19,12 +19,6 @@ export class Vehicle extends React.Component {
 			.then(() => this.props.dispatch(fetchVehicles(user)))
 	}
 
-	onViewClick(e) {
-		console.log('event clicked', console.log(this.props));
-		//save vehicleId to localStorage;
-		// clearVehicleId(this.props.)
-	}
-
 	formatDate() {
 		let maintenanceDate = new Date(this.props.created)
 
@@ -50,49 +44,48 @@ export class Vehicle extends React.Component {
 
 
 	render() {
-
+// render vehicle the vehicle buttons that are used in conditional statements in the return statement.
 		let vehicleListButtons = (
-			<>
+			//Garage view// view vehicle button below
+			<div className="vehicle-buttons block">
 				<p className="vehicle-button">
 					<Link to={`/vehicle/${this.props._id}`}>
-						<button className="view-vehicle form-button" onClick={e => this.onViewClick(e)} >
-							<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABMElEQVQ4T2NkoBAwYtPv6upax8DA0IgmV7979+4mdPUYBuDQDNOHYQg2A/6DVO/evRtFztXVFas45QZsMxWxZ2T438XAwGBGYnie+s/AWMa43VT4ubatg4SYvCJJ+l89vM9w9fCBFyAD/ttbmjP8//GNJAMYObgYDh4/yQA2wE5HjeHe5x8MDz7/ZFDgZWdQ4uXAahi6mkNXbkENUJNjOPDiM4NC13KGB2WRDA4SvFgNQFdz6NYjiAEg1ec+/WYI3niKYa2/GYMRHytWA7CpAUfjLgux/++EJBl02+YzXK5KZLCVEsJqwOFn7+BqhN49Z3A78YoRboCEvCLDw88/GOR5ORiU+TmxGnD343e4mhcP76MaYK2pTFIsHL1+F80AZWnSDLj7FNUAknRDFYPCAAAmHJIt7P/gUAAAAABJRU5ErkJggg==" alt="view vehicle" />
-							View
+						<button className="view-vehicle form-button">
+						<i class="fas fa-wrench">View</i>
 					</button>
 					</Link>
 				</p>
 				<p className="vehicle-button">
 					<button className="delete-vehicle form-Button" onClick={e => this.onDeleteClick(e)}>
-						<i className="fas fa-trash-alt"></i>
-						Delete
+						<i className="fas fa-trash-alt">Delete</i>
 				</button>
 				</p>
-			</>
+			</div>
+		// Garage view // delete vehicle button above
 		)
 
 		let editVehicleButtons = (
+			// Vehicle Maintenance // edit vehicle button below
 			<div className="vehicle-buttons block">
 				<p className="vehicle-button">
 					<Link to={`/EditVehicle/${this.props.id}`}>
 						<button className="edit-vehicle form-button">
-							<i className="fas fa-edit"></i>
-							Edit Vehicle
+							<i className="fas fa-edit">Edit Vehicle</i>
 							</button>
 					</Link>
 				</p>
 				<p className="vehicle-button">
 					<Link to={`/AddMaintenance/${this.props.id}`}>
 						<button className="add-maintenance form-button">
-							<i className="fas fa-plus-circle"></i>
-							Add Maintenance
+							<i className="fas fa-plus-circle">Add Maintenance</i>
 						</button>
 					</Link>
 				</p>
 			</div>
+			// Vehicle Maintenance // add maintenence vehicle button above
 		)
-
+// Return vehicles item information
 		return (
-
 			<div className="vehicle wrapper">
 				<div className="item-title block">
 					<h1> {this.props.year} {this.props.brand} </h1>
@@ -132,10 +125,10 @@ export class Vehicle extends React.Component {
 							{this.formatDate()}
 						</p>
 					</div>
-
 					{this.props.history.location.pathname === `/garage` ? vehicleListButtons : ''}
 					{this.props.history.location.pathname !== `/garage` ? editVehicleButtons : ''}
 			</div>
+			//if vehicle component is in the garage section, show vehicle navigations ( VIEW , DELETE ) Vehicle buttons //
 		);
 	};
 };
