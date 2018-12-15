@@ -11,7 +11,7 @@
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	padding: 20px;
 	font-family: 'Nunito', sans-serif;
-	font-size: 14px;
+	font-size: 24px;
 	margin: 20px auto;
 	max-width: 650px;
 	background: beige;
@@ -29,7 +29,7 @@
 	padding: 20px;
 	max-width: 650px;
 	font-family: 'Nunito', sans-serif;
-	font-size: 14px;
+	font-size: 20px;
 	margin: 20px auto;
 	background: beige;
 }

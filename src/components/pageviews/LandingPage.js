@@ -15,11 +15,9 @@ export function LandingPage(props) {
 			</header>
 			<section aria-labelledby="showcase" id="showcase-section">
 				<img id="automate-infographic" src="https://i.imgur.com/k8nU9hz.png" alt="automate infographic"></img>
-				<p>
-					<b>AutoMate</b> is intended to help vehicle owners ( cars, recreational vehicles, motorcycles ) track and log their vehicle maintenance in one uniform web application. Add vehicles and start tracking by adding the most recent vehicle maintenance records and AutoMait will let you know when it is time for your next maintenance for that particular item. Opt in to receive e-mail alerts to be even more up to date!
-				</p>
+				<p><b>AutoMate</b> is intended to help vehicle owners ( cars, recreational vehicles, motorcycles ) track and log their vehicle maintenance in one uniform web application. Add vehicles and start tracking by adding the most recent vehicle maintenance records. When you forget when the last time you had done a particular maintenance, use this app for reference.</p>
 				<div className="demo">
-					<h3><b>Demo Account:</b></h3>
+					<h3><b>Demo Account</b></h3>
 					<span><b>username:</b> administrator</span><br></br>
 					<span><b>password:</b> adminpassword</span>
 				</div>
