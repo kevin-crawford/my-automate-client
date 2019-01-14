@@ -42,13 +42,15 @@
 
 ## Technologies Used:
 
-###<b>Front-End</b>
+<b>Front-End</b>
 * HTML5
 * CSS3 
 * Javascript ES6
 * JQuery
+* React
+* Redux
 
-###<b>Back-End</b>
+<b>Back-End</b>
 * Passport.js 
 * BCrpyt.js 
 * Mongoose 
