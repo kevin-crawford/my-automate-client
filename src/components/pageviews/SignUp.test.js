@@ -28,4 +28,5 @@ describe('<SignUp />', () => {
 			wrapper.find('textarea[type="text"]').instance().value = value;
 			wrapper.simulate('submit');
 			expect(callback).toHaveBeenCalledWith(value);
-	});
+	})
+})

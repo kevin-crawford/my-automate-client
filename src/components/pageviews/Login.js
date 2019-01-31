@@ -31,7 +31,7 @@ export class Login extends React.Component {
 				)}>
 				{error}
 					<fieldset>
-					<legend>Login</legend>
+					<legend>Log In</legend>
 						<label htmlFor="username">Username</label>
 						<Field 
 								component={Input}
@@ -54,13 +54,18 @@ export class Login extends React.Component {
 						/>
 						<div className="submit-container">
 						<button id="login-button" type="submit" disabled={this.props.pristine || this.props.submitting} >
-								Login
+								Log In
 						</button>
 						</div>
 					</fieldset>
 					<p>Dont Have an Account?</p>
 					<Link to="/signup" className="signup-anchor"> Sign up</Link>
 					<Link to="/"><p>Back</p></Link>
+					<div className="demo">
+					<h3><b>Demo Account</b></h3>
+					<span><b>username:</b> administrator</span><br></br>
+					<span><b>password:</b> adminpassword</span>
+				</div>
 				</form>
 		</section>
 		)

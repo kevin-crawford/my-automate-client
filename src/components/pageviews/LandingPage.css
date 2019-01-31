@@ -3,18 +3,15 @@
 }
 
 #title-banner {
-	color: white;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	font-size: 30px
+	color: black;
+	font-family: 'Nunito', sans-serif;
+	font-size: 30px;
 }
+
 .demo {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	padding: 20px;
 	font-family: 'Nunito', sans-serif;
-	font-size: 24px;
-	margin: 20px auto;
-	max-width: 650px;
-	background: beige;
 }
 #automate-infographic {
 	width: 100%;
@@ -25,14 +22,13 @@
 }
 
 .LandingPage p {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	padding: 20px;
 	max-width: 650px;
 	font-family: 'Nunito', sans-serif;
-	font-size: 20px;
 	margin: 20px auto;
-	background: beige;
+	text-align: left;
 }
+
 .signup {
 	margin-right: 20px;
 }
@@ -40,6 +36,13 @@
 footer {
 	bottom: 0;
 	margin-top: 100px;
+}
+
+section#showcase-section {
+	margin: auto;
+	max-width: 553px;
+	padding: 10px;
+	background: #b8b8b8;
 }
 
 .landing-button {

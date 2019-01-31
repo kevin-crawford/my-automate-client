@@ -10,17 +10,13 @@ export function LandingPage(props) {
 	}
 	return (
 		<div className="LandingPage">
-			<header role="banner" id="title-banner">
-				<h1>AutoMate</h1>
-			</header>
 			<section aria-labelledby="showcase" id="showcase-section">
+			<header role="banner" id="title-banner">
+				<h1>Automate</h1>
+			</header>
 				<img id="automate-infographic" src="https://i.imgur.com/k8nU9hz.png" alt="automate infographic"></img>
-				<p><b>AutoMate</b> is intended to help vehicle owners ( cars, recreational vehicles, motorcycles ) track and log their vehicle maintenance in one uniform web application. Add vehicles and start tracking by adding the most recent vehicle maintenance records. When you forget when the last time you had done a particular maintenance, use this app for reference.</p>
-				<div className="demo">
-					<h3><b>Demo Account</b></h3>
-					<span><b>username:</b> administrator</span><br></br>
-					<span><b>password:</b> adminpassword</span>
-				</div>
+				<p><b>Automate</b> is intended to help vehicle owners ( cars, recreational vehicles, motorcycles ) track and log their vehicle maintenance in one uniform web application.</p>
+				<p> Add vehicles and start tracking by adding the most recent vehicle maintenance records. When you forget when the last time you had done a particular maintenance, use this app for reference.</p>
 
 				<Link to='/signup'>
 					<button className="signup landing-button">

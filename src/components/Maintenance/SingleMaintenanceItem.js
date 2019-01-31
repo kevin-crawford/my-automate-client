@@ -74,14 +74,14 @@ class SingleMaintenanceItem extends React.Component {
 						<Link to={{ pathname: "/EditMaintenance", query: { id: this.props.id } }}>
 							<button className="edit-maintenance button">
 							<i className="far fa-edit"></i>
-								Edit
-								</button>
+								<span>Edit</span>
+							</button>
 						</Link>
 					</p>
 					<p className="maintenance-button">
 						<button className="deleteButton" onClick={e => this.onDeleteClick(e)}>
 						<i className="fas fa-minus-circle"></i>
-							Delete
+							<span>Delete</span>
 						</button>
 					</p>
 				</div>

@@ -29,13 +29,13 @@ export class Navigation extends React.Component {
 						<li className="nav-button">
 							<Link to="/garage">
 								<button className="garage-redirectf">
-									<i className="fas fa-warehouse">Garage</i>
+									<i className="fas fa-warehouse"><span>Garage</span></i>
 									</button>
 							</Link>
 						</li>
 						<li className="nav-button">
 							<button id="logout" onClick={() => this.logOut()}>
-								<i className="fas fa-sign-out-alt">Log Out</i>
+								<i className="fas fa-sign-out-alt"><span>Log Out</span></i>
 								</button>
 						</li>
 					</ul>

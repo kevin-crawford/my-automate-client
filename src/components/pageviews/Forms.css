@@ -58,6 +58,12 @@
 	color: #725129;
 	text-shadow: #fdf2e4 0 1px 0;
 	}
+
+#login-form input {
+		margin: 15px;
+		height: 30px;
+}
+
 #login-form fieldset {
 	border: none;
 }

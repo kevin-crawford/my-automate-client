@@ -10,6 +10,10 @@
 	border-radius: 5px;
 }
 
+span {
+	padding: 0px 5px;
+}
+
 .vehicle h2 {
 	padding-top: 10px;
 	font-size: 30px;
@@ -24,10 +28,19 @@
 .vehicle {
 	padding-bottom: 20px;
 }
+
+.list-item.wrapper {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .list-item {
 	margin: 0; 
   padding: 0; 
-  padding-bottom: 1.25em;
+	padding-bottom: 1.25em;
+	width: 185px;
+	margin: auto;
+	text-align: left;
 }
 .vehicle-label {
   margin: 0; 
@@ -37,7 +50,7 @@
   padding-top: .1em; 
   padding-right: .25em; 
   width: 6em; 
-  text-align: right; 
+  text-align: left; 
 	float: left; 
 	font-family: 'Staatliches', cursive;
 }
@@ -68,10 +81,10 @@ p.vehicle-item {
 .view-vehicle img {
 	padding-right: 10px;
 }
-.delete-vehicle i {
+/* .delete-vehicle i {
 	padding-right: 10px;
 	padding-top: 2px;
-}
+} */
 
 @media (max-width: 400px){
 	.vehicle {

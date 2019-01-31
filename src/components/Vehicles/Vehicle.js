@@ -51,13 +51,13 @@ export class Vehicle extends React.Component {
 				<p className="vehicle-button">
 					<Link to={`/vehicle/${this.props._id}`}>
 						<button className="view-vehicle form-button">
-						<i class="fas fa-wrench">View</i>
+						<i class="fas fa-wrench"><span>View</span></i>
 					</button>
 					</Link>
 				</p>
 				<p className="vehicle-button">
 					<button className="delete-vehicle form-Button" onClick={e => this.onDeleteClick(e)}>
-						<i className="fas fa-trash-alt">Delete</i>
+						<i className="fas fa-trash-alt"><span>Delete</span></i>
 				</button>
 				</p>
 			</div>
@@ -70,14 +70,14 @@ export class Vehicle extends React.Component {
 				<p className="vehicle-button">
 					<Link to={`/EditVehicle/${this.props.id}`}>
 						<button className="edit-vehicle form-button">
-							<i className="fas fa-edit">Edit Vehicle</i>
+							<i className="fas fa-edit"><span>Edit Vehicle</span></i>
 							</button>
 					</Link>
 				</p>
 				<p className="vehicle-button">
 					<Link to={`/AddMaintenance/${this.props.id}`}>
 						<button className="add-maintenance form-button">
-							<i className="fas fa-plus-circle">Add Maintenance</i>
+							<i className="fas fa-plus-circle"><span>Add Maintenance</span></i>
 						</button>
 					</Link>
 				</p>
@@ -91,6 +91,7 @@ export class Vehicle extends React.Component {
 					<h1> {this.props.year} {this.props.brand} </h1>
 					<h2>Vehicle Information</h2>
 				</div>
+				<div class="list-item wrapper">
 					<div className="list-item block">
 						<label htmlFor="vehicle-brand" className="vehicle-label">Brand: </label>
 						<p className="vehicle-item">
@@ -124,6 +125,7 @@ export class Vehicle extends React.Component {
 						<p className="vehicle-item">
 							{this.formatDate()}
 						</p>
+					</div>
 					</div>
 					{this.props.history.location.pathname === `/garage` ? vehicleListButtons : ''}
 					{this.props.history.location.pathname !== `/garage` ? editVehicleButtons : ''}
