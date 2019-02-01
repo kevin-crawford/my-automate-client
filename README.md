@@ -9,30 +9,25 @@
 
 
 ### Landing Page
-![Screenshot](/images/landingpage.png)
+![Screenshot](/images/automate_landing.png)
 
 ### Sign Up / Register
 
-![Screenshot](/images/login.png)
-![Screenshot](/images/register.png)
+![Screenshot](/images/automate_login.png)
 
 ### Vehicle Garage
 <p>User Should add vehicles they own into the garage.</p> 
 
-![Screenshot](/images/garage.png)
+![Screenshot](/images/automate_garage.png)
 
 ### Add Vehicle
-![Screenshot](/images/addVehicle.png)
+![Screenshot](/images/automate_addvehicle.png)
 
 ### Single Vehicle View
 <p>User Can add maintenance items at the single vehicle view page</p>
 
-![Screenshot](/images/singlevehicle.png)
+![Screenshot](/images/automate_singlevehicle.png)
 
-
-### Add Maintenance
-
-![Screenshot](/images/addMaintenance.png)
 
 ## Functionality
 <ul>
