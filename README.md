@@ -1,6 +1,6 @@
-# AutoMate
+# Automate
 
-### Live App: https://fast-meadow-25618.herokuapp.com/
+### Live App: https://automateclient.herokuapp.com/
 ### Link To Back-end API: https://github.com/kdxcii/my-automate-api
 
 ### Summary:
