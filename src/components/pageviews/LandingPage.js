@@ -26,7 +26,7 @@ export function LandingPage(props) {
 				</Link>
 				<Link to='/login'>
 					<button className="login landing-button">
-						Login
+						Log In
 						</button>
 				</Link>
 
