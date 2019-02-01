@@ -20,13 +20,12 @@
 .maintenance-label {
 	margin: 0; 
   padding: 0; 
-  display: block; 
   font-size: 100%; 
   padding-top: .1em; 
   padding-right: .25em; 
-  width: 6em; 
-  text-align: right; 
+  width: 6em;
   float: left; 
+  text-align: left;
 	font-family: 'Staatliches', cursive;
 }
 

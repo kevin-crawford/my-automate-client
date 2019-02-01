@@ -3,7 +3,7 @@
 }
 .vehicle {
 	background: #d1e5f0;
-	height: 430px;
+	height: 400px;
 	margin: auto 20px;
 	padding-bottom: 20px;
 	margin-bottom: 50px;
@@ -36,11 +36,14 @@ span {
 
 .list-item {
 	margin: 0; 
-  padding: 0; 
-	padding-bottom: 1.25em;
-	width: 185px;
+  padding: 5px; 
+	width: 230px;
 	margin: auto;
-	text-align: left;
+	text-align: right;
+}
+
+.block:nth-child(even){
+	background: #cacaca;
 }
 .vehicle-label {
   margin: 0; 
@@ -96,7 +99,7 @@ p.vehicle-item {
 
 @media (min-width: 775px){
 	.vehicle {
-		width: 775px;
+		width: 620px;
 		margin: auto;
 	}
 

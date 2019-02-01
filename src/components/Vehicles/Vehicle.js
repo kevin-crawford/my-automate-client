@@ -91,7 +91,7 @@ export class Vehicle extends React.Component {
 					<h1> {this.props.year} {this.props.brand} </h1>
 					<h2>Vehicle Information</h2>
 				</div>
-				<div class="list-item wrapper">
+				<div className="list-item wrapper">
 					<div className="list-item block">
 						<label htmlFor="vehicle-brand" className="vehicle-label">Brand: </label>
 						<p className="vehicle-item">

@@ -2,10 +2,11 @@
 	margin-top: 20px;
 }
 
-#title-banner {
+#title-banner h1 {
 	color: black;
 	font-family: 'Nunito', sans-serif;
-	font-size: 30px;
+	font-size: 75px;
+	margin: 10px 0px;
 }
 
 .demo {

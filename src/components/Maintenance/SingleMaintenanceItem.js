@@ -49,6 +49,7 @@ class SingleMaintenanceItem extends React.Component {
 				<h2>0{this.props.index + 1}</h2>
 				<h3>{this.props.kind} Maintenance</h3>
 			</div>
+			<div class="list-item wrapper">
 				<div className="list-item block">
 					<label htmlFor="kind" className="maintenance-label">Kind</label>
 					<p className="maintenance-item">{this.props.kind}</p>
@@ -68,11 +69,11 @@ class SingleMaintenanceItem extends React.Component {
 					<label htmlFor="dateAdded" className="maintenance-label">Date Added</label>
 					<p className="maintenance-item">{this.formatDate()}</p>
 				</div>
-
+			</div>
 				<div className="list-item block">
 					<p className="maintenance-button">
 						<Link to={{ pathname: "/EditMaintenance", query: { id: this.props.id } }}>
-							<button className="edit-maintenance button">
+							<button className="edit-maintenance">
 							<i className="far fa-edit"></i>
 								<span>Edit</span>
 							</button>

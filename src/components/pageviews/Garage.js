@@ -66,12 +66,13 @@ class Garage extends React.Component {
 	
 		return(
 			<div className="garage wrapper">
+			<div className="NewVehicleBtn">
+					<AddNewVehicle />
+				</div>
 				<div className="vehicles-list wrapper">
 					{vehiclesList}
 				</div>
-				<div className="NewVehicleBtn">
-					<AddNewVehicle />
-				</div>
+				
 			</div>
 			)
 		}

@@ -1,17 +1,46 @@
-.Navigation {
+nav {
 	position: fixed;
-	top: -16px;
+	top: 0px;
 	left: 0;
 	right: 0;
 	z-index: 10;
-	padding: 1% 10%;
+	padding: 0% 10%;
 	background-color: #333;
 	border-bottom: 2px solid black;
+	display: flex;
+
 }
+
+ul.Navigation {
+    max-width: 442px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 
 li.nav-button,
 li.brand-wrapper {
 	list-style: none;
+}
+
+li.nav-button {
+	cursor: pointer;
+}
+.nav-button span {
+	font-family: 'Tajawal', sans-serif;
+	color: white;
+}
+
+.fa-warehouse:before {
+	content: "\f494";
+	color: white;
+}
+
+.fa-sign-out-alt:before {
+	content: "\f2f5";
+	color: white;
 }
 
 .Navigation #branding {
@@ -29,7 +58,6 @@ li.brand-wrapper {
 
 .Navigation .nav-button {
   margin-right: 0px;
-	margin-top: 15px;
 	padding: 5px 10px;
 	float: right;
 }
@@ -59,13 +87,13 @@ li.brand-wrapper {
 	.Navigation #branding p {
 		display: none;
 	}
-	.Navigation .nav-button {
+	/* .Navigation .nav-button {
 		margin-right: 0px;
 		border: none;
 		margin-top: 5px;
 		padding: 5px 10px;
 		display: block;
 		width: 100%
-	}
+	} */
 
 }

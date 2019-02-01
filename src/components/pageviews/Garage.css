@@ -53,7 +53,7 @@
 	-moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
 	box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
 	text-shadow: #7ea4bd 0 1px 0;
-	color: #06426c;
+	color: #fff;
 	font-size: 18px;
 	font-family: helvetica, serif;
 	text-decoration: none;
@@ -69,7 +69,7 @@
 	background: -ms-linear-gradient(top, #65a9d7, #3e779d);
 	background: -o-linear-gradient(top, #65a9d7, #3e779d);
 	background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
-	color: #fff;
+	color: #06426c;
 	}
 	.AddNewVehicle button:active {
 	text-shadow: #1e4158 0 1px 0;
@@ -86,20 +86,20 @@
 
 @media (min-width: 775px){
 	.banner-title {
-		width: 775px;
+		width: 620px;
 		margin: auto;
 		border-radius: 25px
 	}
 
 	.AddNewVehicle button {
-		width: 775px;
+		width: 620px;
 		margin: auto;
 		margin-top: 25px;
 		font-size: 26px;
 	}
 
 	.no-vehicles {
-		width: 700px;
+		width: 620px;
 		margin: auto;
 	}
 }
