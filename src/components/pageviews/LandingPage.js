@@ -15,9 +15,10 @@ export function LandingPage(props) {
 				<h1>Automate</h1>
 			</header>
 				<img id="automate-infographic" src="https://i.imgur.com/k8nU9hz.png" alt="automate infographic"></img>
+				<div id="details">
 				<p><b>Automate</b> is intended to help vehicle owners ( cars, recreational vehicles, motorcycles ) track and log their vehicle maintenance in one uniform web application.</p>
 				<p> Add vehicles and start tracking by adding the most recent vehicle maintenance records. When you forget when the last time you had done a particular maintenance, use this app for reference.</p>
-
+				</div>
 				<Link to='/signup'>
 					<button className="signup landing-button">
 						Sign Up
@@ -30,7 +31,7 @@ export function LandingPage(props) {
 				</Link>
 
 			</section>
-			<footer>AutoMate 2018 / Website by Kevin Crawford</footer>
+			<footer><p>AutoMate 2018 / Website by Kevin Crawford</p></footer>
 		</div>
 	)
 }

@@ -23,7 +23,7 @@
 	vertical-align: middle;
 	min-width:300px;
 	padding:20px;
-	width:300px;
+	max-width: 553px;
 	}
 .form-field {
 	border: 1px solid #c9b7a2;
@@ -43,6 +43,16 @@
 	background: #fff;
 	color: #725129;
 	}
+
+.form-field-wrapper {
+	display: flex;
+	align-items: center;
+	height: 40px;
+}
+
+fieldset {
+	border: none;
+}
 	
 .Login h2 {
 	text-shadow: #fdf2e4 0 1px 0;
@@ -60,8 +70,20 @@
 	}
 
 #login-form input {
-		margin: 15px;
 		height: 30px;
+}
+.form-error {
+	color: #f41e1e;
+	color: #f41e1e;
+  float: right;
+  padding-left: 5px;
+}
+
+.signup-form label,
+.login-form label {
+	padding-right: 5px;
+	width: 34%;
+	text-align: right;
 }
 
 #login-form fieldset {

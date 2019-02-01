@@ -18,31 +18,47 @@
 	height: 100%;
 	max-width: 650px;
 	max-height: 650px;
+	margin: 40px 0px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.LandingPage p {
+#details p {
 	padding: 20px;
 	max-width: 650px;
 	font-family: 'Nunito', sans-serif;
-	margin: 20px auto;
+	margin: 0;
 	text-align: left;
+}
+
+#details {
+	background: white;
+	margin: 0px 0px 30px 0px;
+	border-radius: 5px;
 }
 
 .signup {
 	margin-right: 20px;
 }
 
+
 footer {
+  position: fixed;
+  left: 0;
 	bottom: 0;
-	margin-top: 100px;
+	height: 40px;
+	width: 100%;
+	font-family: 'Nunito', sans-serif;
+	background-color: grey;
+	border-top: 1px solid black;
+  color: black;
+  text-align: center;
 }
 
 section#showcase-section {
 	margin: auto;
-	max-width: 553px;
+	max-width: 620px;
 	padding: 10px;
-	background: #b8b8b8;
+	background: #4c9097;
 }
 
 .landing-button {

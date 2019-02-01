@@ -36,28 +36,37 @@ export class SignUpForm extends React.Component {
 
 			<fieldset>
 			<legend>Register For Automate</legend>
-				<label htmlFor="firstName" >First Name</label>
-				<Field component={Input} type='text' placeholder="First Name" name="firstName" />
-				<label htmlFor="firstName" >Last Name</label>
-				<Field component={Input} type='text' placeholder="Last Name" name="lastName" />
-				<label htmlFor="username"> Username </label>
-				<Field 
-						component={Input}
-						type="text"
-						name="username"
-						placeholder="Username"
-						id="username"
-						validate={[required, nonEmpty, isTrimmed]}
-						/>
-				<label htmlFor="email"> Email </label>
-				<Field 
-						component={Input}
-						type="text"
-						name="email"
-						placeholder="Email"
-						id="email"
-						validate={[required, nonEmpty, isTrimmed, email]}
-						/>
+				<div className="form-field-wrapper">
+					<label htmlFor="firstName" >First Name</label>
+					<Field component={Input} type='text' placeholder="First Name" name="firstName" />
+				</div>
+				<div className="form-field-wrapper">
+					<label htmlFor="firstName" >Last Name</label>
+					<Field component={Input} type='text' placeholder="Last Name" name="lastName" />
+				</div>
+				<div className="form-field-wrapper">
+					<label htmlFor="username">Username</label>
+					<Field 
+							component={Input}
+							type="text"
+							name="username"
+							placeholder="Username"
+							id="username"
+							validate={[required, nonEmpty, isTrimmed]}
+							/>
+				</div>
+				<div className="form-field-wrapper">
+					<label htmlFor="email"> Email </label>
+					<Field 
+							component={Input}
+							type="text"
+							name="email"
+							placeholder="Email"
+							id="email"
+							validate={[required, nonEmpty, isTrimmed, email]}
+							/>
+				</div>
+				<div className="form-field-wrapper">
 				<label htmlFor="password"> Password </label>
 				<Field 
 						component={Input}
@@ -67,15 +76,18 @@ export class SignUpForm extends React.Component {
 						id="password"
 						validate={[required, passwordLength, isTrimmed]}
 						/>
-				<label htmlFor="passwordConfirm">Confirm Password</label>
-				<Field 
-						component={Input}
-						type="password"
-						name="confirmPassword"
-						placeholder="Confirm Password"
-						id="confirmPassword"
-						validate={[required, matchesPassword, nonEmpty]}
-						/>
+				</div>
+				<div className="form-field-wrapper">
+					<label htmlFor="passwordConfirm">Confirm Password</label>
+					<Field 
+							component={Input}
+							type="password"
+							name="confirmPassword"
+							placeholder="Confirm Password"
+							id="confirmPassword"
+							validate={[required, matchesPassword, nonEmpty]}
+							/>
+				</div>
 				<div className="submit-container">
 				<button type="submit" id="login-button">
 						Sign Up

@@ -32,26 +32,30 @@ export class Login extends React.Component {
 				{error}
 					<fieldset>
 					<legend>Log In</legend>
-						<label htmlFor="username">Username</label>
-						<Field 
-								component={Input}
-								type="text"
-								name="username"
-								placeholder="Username"
-								id="username"
-								class="form-field"
-								validate={[required, nonEmpty]}
-						/>
-						<label htmlFor="password">Password</label>
-						<Field 
-								component={Input}
-								type="password"
-								name="password"
-								placeholder="Password"
-								id="password"
-								class="form-field"
-								validate={[required, nonEmpty]}
-						/>
+					<div class="form-field-wrapper">
+							<label htmlFor="username">Username</label>
+							<Field 
+									component={Input}
+									type="text"
+									name="username"
+									placeholder="Username"
+									id="username"
+									class="form-field"
+									validate={[required, nonEmpty]}
+							/>
+						</div>
+						<div class="form-field-wrapper">
+							<label htmlFor="password">Password</label>
+							<Field 
+									component={Input}
+									type="password"
+									name="password"
+									placeholder="Password"
+									id="password"
+									class="form-field"
+									validate={[required, nonEmpty]}
+							/>
+						</div>
 						<div className="submit-container">
 						<button id="login-button" type="submit" disabled={this.props.pristine || this.props.submitting} >
 								Log In
