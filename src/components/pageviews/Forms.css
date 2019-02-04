@@ -1,6 +1,20 @@
-.Login {
-	margin-top: 200px;
+.Login,
+section.signup {
+	margin-top: 120px;
 }
+
+.Login a,
+.signup a {
+	text-decoration: none;
+	color: green
+}
+
+.Login a:hover,
+.signup a:hover {
+	color: white;
+}
+
+
 #login-form,
 .signup-form {
 	border: 1px solid #f2e3d2;
@@ -71,11 +85,13 @@ fieldset {
 
 #login-form input {
 		height: 30px;
+		text-align: center;
+		width: 150px;
+
 }
 .form-error {
 	color: #f41e1e;
 	color: #f41e1e;
-  float: right;
   padding-left: 5px;
 }
 
@@ -92,6 +108,10 @@ fieldset {
 .submit-container {
 	margin:8px 0;
 	}
+
+.signup-anchor {
+    text-decoration: none;
+}
 
 #login-button {
 	border: 1px solid #447314;

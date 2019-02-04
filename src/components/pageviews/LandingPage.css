@@ -16,11 +16,10 @@
 	font-family: 'Nunito', sans-serif;
 }
 #automate-infographic {
-	width: 100%;
+	width: 75%;
 	height: 100%;
 	max-width: 650px;
 	max-height: 650px;
-	margin: 40px 0px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -34,8 +33,9 @@
 
 #details {
 	background: white;
-	margin: 0px 0px 30px 0px;
-	border-radius: 5px;
+    margin: 10px auto;
+    border-radius: 5px;
+    max-width: 75%;
 }
 
 
@@ -103,7 +103,7 @@ section#showcase-section {
 
 	@media(max-width: 450px){
 		#title-banner h1 {
-			font-size: 32px;
+			font-size: 50px;
 		}
 
 		.landing-button {

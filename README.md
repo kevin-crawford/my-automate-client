@@ -15,6 +15,8 @@
 
 ![Screenshot](/images/automate_login.png)
 
+![Screenshot](/images/automate_signup.png)
+
 ### Vehicle Garage
 <p>User Should add vehicles they own into the garage.</p> 
 
@@ -26,7 +28,7 @@
 ### Single Vehicle View
 <p>User Can add maintenance items at the single vehicle view page</p>
 
-![Screenshot](/images/automate_singlevehicle.png)
+![Screenshot](/images/automate_singleview.png)
 
 
 ## Functionality
