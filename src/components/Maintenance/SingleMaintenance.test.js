@@ -4,7 +4,7 @@ import React from 'react';
 import {shallow, mount} from 'enzyme';
 
 import Maintenance from './Maintenance';
-import SingleMaintenanceItem item from './SingleMaintenanceItem'
+import SingleMaintenanceItem from './SingleMaintenanceItem'
 
 
 describe('<Maintenance />', () => {
@@ -21,5 +21,6 @@ describe('<Maintenance />', () => {
 			const wrapper = shallow(<SingleMaintenanceItem />);
 			wrapper.update();
 			expect(wrapper.hasClass('vehicle')).toEqual(true);
+		}
 	});
 

@@ -86,11 +86,13 @@ fieldset {
 	text-align: right;
 }
 
-#login-form fieldset {
+#login-form fieldset,
+.signup-form fieldset {
 	border: none;
+	padding: 40px 0 0 0;
 }
 .submit-container {
-	margin:8px 0;
+	margin: 20px 0 0 0;
 	}
 
 #login-button {

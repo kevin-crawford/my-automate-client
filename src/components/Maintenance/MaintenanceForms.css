@@ -65,7 +65,7 @@
 		margin-top: 20px;
 	}
 .submit-container {
-	margin:8px 0;
+	margin:20px 0 0 0 ;
 	}
 .submit-button {
 	border: 1px solid #447314;
@@ -125,5 +125,5 @@ input#miles {
 		width: 90%;
 		text-align: center;
 		padding: 15px;
-    margin: 10px auto 53px auto;
+    margin: 10px auto 25px auto;
 	}

@@ -36,6 +36,9 @@
   font-size: 100%;
   font-family: 'Nunito', sans-serif;
 }
+p.maintenance-item {
+  width: 200px;
+}
 
 .maintenance.wrapper:last-child {
   margin-bottom: 100px;
